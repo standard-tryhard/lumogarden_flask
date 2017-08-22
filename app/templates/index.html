@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<h1>Welcome {{ user.nickname }} to the first page, bruh!</h1>
+	{% for post in posts_slice %}
+	<div><p> {{ post.author.nickname }} says: {{ post.body }} </p></div>
+	{% endfor %}
+
+	<h3>Thoughts</h3>
+		<p>I have a few.</p>
+	<h3>Feelings</h3>
+		<p>Sometimes I have <span style="font-style: italic;">those</span> too.</p>
+
+{% endblock %}
+
+
+
+

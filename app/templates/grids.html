@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+
+	<div class="row">
+			<div class="well col-xs-4">
+				<p>Hi</p>
+			</div>
+			<div class="well col-xs-4">
+				<p>Hi</p>
+			</div>
+			<div class="well col-xs-4">
+				<p>Hi</p>
+			</div>
+		</div>	
+
+		<div class="row">
+			<div class="well col-xs-4">
+				<ul>
+					{% for item in grids %}
+					<div>
+						<li class="inline">{{ item }}</li>
+						<button class="btn btn-default" role="button" data-toggle="list-item">
+							<span class="glyphicon glyphicon-delete"></span>
+						</button>
+					</div>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="well col-xs-4">
+				<p><a href="{{ url_for('trees') }}">Grids</a></p>
+			</div>
+			<div class="well col-xs-4">
+				<p>Hi</p>
+			</div>
+		</div>	
+
+		<div class="row">
+			<div class="well col-xs-4">
+				<p>Hi</p>
+			</div>
+			<div class="well col-xs-4">
+				<p>Hi</p>
+			</div>
+			<div class="well col-xs-4">
+				<p>Hi</p>
+			</div>
+		</div>	
+
+{% endblock %}
