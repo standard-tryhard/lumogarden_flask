@@ -1,0 +1,6 @@
+CODE: Charles Petzold
+Where Wizards Stay Up Late
+Bach, Goedl, Escher
+Grokking Algorithms
+Design Patterns / Gang of 4
+Cracking Coding Interview etc.

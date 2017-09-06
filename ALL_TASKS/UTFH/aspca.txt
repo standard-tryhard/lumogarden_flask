@@ -1,0 +1,4 @@
+current: dog adoption assistant
+current: dog training
+I want to volunteer teach: training for adoptions / 
+Free obedience clinic for new dog owners

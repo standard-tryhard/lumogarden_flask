@@ -1,0 +1,3 @@
+see bookmarks for tutorials
+people in the tree as vector V.1
+people in the tree as vector V.2 (with gradients)
