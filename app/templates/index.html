@@ -1,18 +1,64 @@
 {% extends "base.html" %}
 {% block content %}
 
-	<h1>Welcome {{ user.nickname }} to the first page, bruh!</h1>
-	{% for post in posts_slice %}
-	<div><p> {{ post.author.nickname }} says: {{ post.body }} </p></div>
-	{% endfor %}
+	<h3 class="top-header">LUMOGRIDS</h3>
 
-	<h3>Thoughts</h3>
-		<p>I have a few.</p>
-	<h3>Feelings</h3>
-		<p>Sometimes I have <span style="font-style: italic;">those</span> too.</p>
+	<div class="row">
+	{% for pool in pools[:3] %}
+		
+		<div class="col-xs-4">
+			<div class="well">
+				<h4 class="category-header">{{ pool.pool_name }}</h4>
+				<div>
+					<ul>
+						{% for pool_item in pool.pool_items[:3] %}
+						<li> {{ pool_item.task }} </li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	{% endfor %}	
+	</div>
+
+	<div class="row">
+	{% for pool in pools[3:6] %}
+		
+		<div class="col-xs-4">
+			<div class="well">
+				<h4 class="category-header">{{ pool.pool_name }}</h4>
+				<div>
+					<ul>
+						{% for pool_item in pool.pool_items[:3] %}
+						<li> {{ pool_item.task }} </li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	{% endfor %}	
+	</div>
+
+	<div class="row">
+	{% for pool in pools[6:] %}
+		
+		<div class="col-xs-4">
+			<div class="well">
+				<h4 class="category-header">{{ pool.pool_name }}</h4>
+				<div>
+					<ul>
+						{% for pool_item in pool.pool_items[:3] %}
+						<li> {{ pool_item.task }} </li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	{% endfor %}	
+	</div>
 
 {% endblock %}
-
-
-
 

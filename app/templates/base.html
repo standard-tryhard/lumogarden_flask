@@ -1,27 +1,39 @@
+<!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 	{% if title %}
 	<title>{{ title }} - Microblog</title>
 	{% else %}
-	<title>Microblog</title>
+	<title>LUMOGRIDS</title>
 	{% endif %}
 </head>
-	<body>
-		<div>Microblog: <a href="/index">Home</a>
-			<a style="inline" href="/login">Log In</a>
-		</div>
-		<hr>
-			{% with messages = get_flashed_messages() %}
-				{% if messages %}
-					<ul>
-					{% for message in messages %}
-						<li> {{message}} </li>
-					{% endfor %}
-					</ul>
-				{% endif %}
-			{% endwith %}
 
-			{% block content %} {% endblock %}
+	<body>
+		<div class="container">
+				{% with messages = get_flashed_messages() %}
+					{% if messages %}
+						<ul>
+						{% for message in messages %}
+							<li> {{message}} </li>
+						{% endfor %}
+						</ul>
+					{% endif %}
+				{% endwith %}
+	
+				{% block content %} {% endblock %}
+		</div>
 
 	</body>
 </html>

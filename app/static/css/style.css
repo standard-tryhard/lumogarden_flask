@@ -1,20 +1,31 @@
-/* FLASK_TUTORIAL_LYNDA/static/css/style.css */
+body {
+	background-color:#204060;
+	padding-top: 10px;
+}
+
+.category-header {
+	text-align: center;
+	text-transform: uppercase;
+}
 
 .container {
-	max-width: 850px;
+	max-width:700px;
 }
 
-body {
-	color: grey;
+.top-header {
+	color:grey;
+	text-align: center;
+	margin-bottom: 50px;
+	font-weight: lighter;
 }
-
-
-
-.inline {
-	display: inline-block;
-}
-
 
 .well {
-	min-height: 200px;
+	background-color: #777;
+	border: none;
+	min-height: 150px;
 }
+
+div.well ul  {
+	list-style-type: none;
+}
+
