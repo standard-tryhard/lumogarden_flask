@@ -20,35 +20,35 @@ class PoolItems(db.Model):
 		return '<Task %r>' % (self.task)
 
 
-# class Grid(db.Model):
-# 	__tablename__ = 'grid'
-# 	id = db.Column(db.Integer, primary_key = True)
-# 	grid_name = db.Column(db.String(64), index=True, unique=True)
-# 	jars = db.relationship('Jar', backref='name', lazy='dynamic')
+class Grid(db.Model):
+	__tablename__ = 'grid'
+	id = db.Column(db.Integer, primary_key = True)
+	grid_name = db.Column(db.String(64), index=True, unique=True)
+	jars = db.relationship('Jar', backref='name', lazy='dynamic')
 	
-# 	def __repr__(self):
-# 		return '<Grid %r>' % (self.grid_name)
+	def __repr__(self):
+		return '<Grid %r>' % (self.grid_name)
 
 
-# class Jar(db.Model):
-# 	__tablename__ = 'jar'
-# 	id = db.Column(db.Integer, primary_key=True)
-# 	jar_name = db.Column(db.String(60))
-# 	available = db.Column(db.Boolean())
-# 	active = db.Column(db.Boolean())
-# 	card = db.relationship('CardItems', backref='name', lazy='dynamic')
+class Jar(db.Model):
+	__tablename__ = 'jar'
+	id = db.Column(db.Integer, primary_key=True)
+	jar_name = db.Column(db.String(60))
+	jar_available = db.Column(db.Boolean())
+	jar_active = db.Column(db.Boolean())
 
-# 	def __repr__(self):
-# 		return '<Jar %r>' % (self.jar_name)
+	category = db.Column(db.Integer, db.ForeignKey('grid.id'))
+	cards = db.relationship('CardItems', backref='name', lazy='dynamic')
+
+	def __repr__(self):
+		return '<Jar %r>' % (self.jar_name)
 
 
 class CardItems(db.Model):
 	__tablename__ = 'card_items'
 	id = db.Column(db.Integer, primary_key=True)
-	task = db.Column(db.String(140))
-	jar = db.Column(db.Integer, db.ForeignKey('jar.id'))
+	card_item = db.Column(db.String(140))
+	category = db.Column(db.Integer, db.ForeignKey('jar.id'))
 
 	def __repr__(self):
 		return '<CardItems %r>' % (self.card_items)
-
-
