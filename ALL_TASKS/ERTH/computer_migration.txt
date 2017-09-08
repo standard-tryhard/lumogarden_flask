@@ -1,3 +1,0 @@
-COMPUTER MIGRARTION:
-Copy windows applications to harddrive
-Use crashplan to sync with windows computer
