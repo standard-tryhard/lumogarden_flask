@@ -4,63 +4,25 @@
 	<h3 class="top-header">LUMOGRIDS</h3>
 
 	<div class="row">
-	{% for pool in pools[:3] %}
+	<!-- {% for pool in pools[:3] %} -->
 		
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-					<a href="/jars/{{pool.pool_name}}/"> {{ pool.pool_name }}</a>
+					<!-- <a href="/jars/{{pool.pool_name}}/"> {{ pool.pool_name }}</a> -->
+					<a href="#">link</a>
 				</h4>
 				<div>
 					<ul>
-						{% for pool_item in pool.pool_items[:3] %}
-						<li> {{ pool_item.task }} </li>
-						{% endfor %}
+						<li>item</li>
+						<li>item</li>
+						<li>item</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 
-	{% endfor %}	
-	</div>
-
-	<div class="row">
-	{% for pool in pools[3:6] %}
-		
-		<div class="col-xs-4">
-			<div class="well">
-				<h4 class="category-header">{{ pool.pool_name }}</h4>
-				<div>
-					<ul>
-						{% for pool_item in pool.pool_items[:3] %}
-						<li> {{ pool_item.task }} </li>
-						{% endfor %}
-					</ul>
-				</div>
-			</div>
-		</div>
-
-	{% endfor %}	
-	</div>
-
-	<div class="row">
-	{% for pool in pools[6:] %}
-		
-		<div class="col-xs-4">
-			<div class="well">
-				<h4 class="category-header">{{ pool.pool_name }}</h4>
-				<div>
-					<ul>
-						{% for pool_item in pool.pool_items[:3] %}
-						<li> {{ pool_item.task }} </li>
-						{% endfor %}
-					</ul>
-				</div>
-			</div>
-		</div>
-
-	{% endfor %}	
-	</div>
+	</div> <!-- row -->
 
 {% endblock %}
 
