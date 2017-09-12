@@ -12,10 +12,14 @@
 				</h4>
 				<div>
 					<ul>
+					{% for user in users %}
+						<li>{{ user.name }}</li>
+					{% endfor %}
 						<li>item</li>
 						<li>item</li>
 						<li>item</li>
 					</ul>
+
 				</div>
 
 			</div> <!-- well -->

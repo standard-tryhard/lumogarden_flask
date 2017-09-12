@@ -1,16 +1,16 @@
 from flask import render_template, flash, redirect
-from app import lumo_hub, db
+from app import lumo_hub, mongo
 
 @lumo_hub.route('/')
 @lumo_hub.route('/grids/')
 def grids():
-	# user = {'nickname': 'Thomas'}
+	user = {'nickname': 'Thomas'}
 
-	user = db.users.find( {} )
-	print(user)
+	users = mongo.db.users.find( {} )
 
 	return render_template('grids.html',  
-							user=user)
+							user=user,
+							users=users)
 
 
 @lumo_hub.route('/jars/<string:jars_name>/')
