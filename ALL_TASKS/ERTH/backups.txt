@@ -1,1 +1,0 @@
-finish android backup (see files at backup_android_note)

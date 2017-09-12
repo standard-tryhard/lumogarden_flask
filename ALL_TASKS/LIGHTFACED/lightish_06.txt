@@ -1,3 +1,0 @@
-SQLAlchemy Tuut --> MVC, JSON
-JSONIFY
-Copy a list; 

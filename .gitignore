@@ -8,9 +8,12 @@ __pycache__/
 
 # DS Store (What is this?)
 .DS_Store
+app/.DS_Store
 
 # Distribution / packaging
 .Python
+app/__pycache__/
+runner/
 build/
 develop-eggs/
 dist/
