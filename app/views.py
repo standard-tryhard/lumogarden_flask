@@ -4,9 +4,10 @@ from app import lumo_hub, db
 @lumo_hub.route('/')
 @lumo_hub.route('/grids/')
 def grids():
-	user = {'nickname': 'Thomas'}
+	# user = {'nickname': 'Thomas'}
 
-	# db = mongo.db.lumogrids_flask
+	user = db.users.find( {} )
+	print(user)
 
 	return render_template('grids.html',  
 							user=user)

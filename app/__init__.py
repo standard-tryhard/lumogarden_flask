@@ -5,8 +5,8 @@ from whitenoise import WhiteNoise
 lumo_hub = Flask(__name__)
 lumo_hub.config.from_object('config')
 
-client = MongoClient(lumo_hub.MONGO_URI)
-db = client[lumo_hub.MONGO_DBNAME]
+db = PyMongo(lumo_hub)
+# db = db.lumogrids_flask
 
 lumo_hub.wsgi_app = WhiteNoise(lumo_hub.wsgi_app, root='static/')
 
