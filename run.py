@@ -1,3 +1,3 @@
-#!runner/bin/python
+#!venv/bin/python3
 from app import lumo_hub
 lumo_hub.run(debug=True)
