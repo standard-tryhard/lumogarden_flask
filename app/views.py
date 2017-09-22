@@ -1,21 +1,28 @@
+import pymongo
 from flask import render_template, flash, redirect
 from app import lumo_hub, mongo
-import pymongo
+import db_queries
 
 @lumo_hub.route('/')
 @lumo_hub.route('/grids/')
 def grids():
-	user = {'nickname': 'Thomas'}
 
-	arte_card = mongo.db.Cards.find_one( {'grid_category': 'arte'} )
-	tasks = arte_card['tasks']
-	tasks = [t['step'] for t in tasks if t['status'] == "incomplete"][:3]
+	
 	# print(arte_card)
 	# tasks = [t for t in task = #arte_card['tasks'][:3]
 
 	return render_template('grids.html',  
-							user=user,
-							tasks=tasks)
+							active_lght_cards=db_queries.query_by_grid('lght'),
+							active_care_cards=db_queries.query_by_grid('care'),
+							active_arte_cards=db_queries.query_by_grid('arte'),
+
+							active_soft_cards=db_queries.query_by_grid('soft'),
+							active_musc_cards=db_queries.query_by_grid('musc'),
+
+							active_utfh_cards=db_queries.query_by_grid('utfh'),
+							active_erth_cards=db_queries.query_by_grid('erth'),
+							active_wrte_cards=db_queries.query_by_grid('wrte')
+							)
 
 
 @lumo_hub.route('/jars/<string:jars_name>/')

@@ -6,8 +6,14 @@ client = pymongo.MongoClient(conn_str)
 
 db = client.lumogrids_flask
 
-arte_card = db.Cards.find_one( {'grid_category': 'arte'} )
-print(arte_card['tasks'])
+def query_by_grid(grid_category):
+	active = db.Cards.find( {'grid_category': grid_category, 'active_grid': True} )
+	card_names = [card['jar_category'].capitalize() for card in active]
+	return card_names
+
+cards = query_by_grid('arte')
+print(cards)
+
 # if db.books.count() == 0:
 #     print("Inserting data")
 #     # insert some data...

@@ -8,12 +8,13 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-					<a href="#">link</a>
+					<a href="#">lght</a>
 				</h4>
+				<!-- <h3> {{ hey }} </h3> -->
 				<div>
 					<ul>
-					{% for task in tasks %}
-						<li>{{ task }}</li>
+					{% for card in active_lght_cards %}
+						<li>{{ card }}</li>
 					{% endfor %}
 					</ul>
 
@@ -22,7 +23,161 @@
 			</div> <!-- well -->
 		</div> <!-- col -->
 
-	</div> <!-- row -->
+		<div class="col-xs-4">
+			<div class="well">
+				<h4 class="category-header">
+					<a href="#">care</a>
+				</h4>
+				<!-- <h3> {{ hey }} </h3> -->
+				<div>
+					<ul>
+					{% for card in active_care_cards %}
+						<li>{{ card }}</li>
+					{% endfor %}
+					</ul>
+
+				</div>
+
+			</div> <!-- well -->
+		</div> <!-- col -->
+
+		<div class="col-xs-4">
+			<div class="well">
+				<h4 class="category-header">
+					<a href="#">arte</a>
+				</h4>
+				<!-- <h3> {{ hey }} </h3> -->
+				<div>
+					<ul>
+					{% for card in active_arte_cards %}
+						<li>{{ card }}</li>
+					{% endfor %}
+					</ul>
+
+				</div>
+
+			</div> <!-- well -->
+		</div> <!-- col -->
+
+	</div> <!-- row #1 lght,care and arte -->
+
+<!-- ################ -->
+
+	<div class="row">
+		
+		<div class="col-xs-4">
+			<div class="well">
+				<h4 class="category-header">
+					<a href="#">soft</a>
+				</h4>
+				<!-- <h3> {{ hey }} </h3> -->
+				<div>
+					<ul>
+					{% for card in active_soft_cards %}
+						<li>{{ card }}</li>
+					{% endfor %}
+					</ul>
+
+				</div>
+
+			</div> <!-- well -->
+		</div> <!-- col -->
+
+		<div class="col-xs-4">
+			<div class="well">
+				<h4 class="category-header">
+					<a href="#">center</a>
+				</h4>
+				<!-- <h3> {{ hey }} </h3> -->
+				<div>
+					<ul>
+						<li>center node</li>
+					</ul>
+
+				</div>
+
+			</div> <!-- well -->
+		</div> <!-- col -->
+
+		<div class="col-xs-4">
+			<div class="well">
+				<h4 class="category-header">
+					<a href="#">musc</a>
+				</h4>
+				<!-- <h3> {{ hey }} </h3> -->
+				<div>
+					<ul>
+					{% for card in active_musc_cards %}
+						<li>{{ card }}</li>
+					{% endfor %}
+					</ul>
+
+				</div>
+
+			</div> <!-- well -->
+		</div> <!-- col -->
+
+	</div> <!-- row #2 soft, CENTRE and music -->
+
+<!-- ################ -->
+
+	<div class="row">
+		
+		<div class="col-xs-4">
+			<div class="well">
+				<h4 class="category-header">
+					<a href="#">utfh</a>
+				</h4>
+				<!-- <h3> {{ hey }} </h3> -->
+				<div>
+					<ul>
+					{% for card in active_utfh_cards %}
+						<li>{{ card }}</li>
+					{% endfor %}
+					</ul>
+
+				</div>
+
+			</div> <!-- well -->
+		</div> <!-- col -->
+
+		<div class="col-xs-4">
+			<div class="well">
+				<h4 class="category-header">
+					<a href="#">erth</a>
+				</h4>
+				<!-- <h3> {{ hey }} </h3> -->
+				<div>
+					<ul>
+					{% for card in active_erth_cards %}
+						<li>{{ card }}</li>
+					{% endfor %}
+					</ul>
+
+				</div>
+
+			</div> <!-- well -->
+		</div> <!-- col -->
+
+		<div class="col-xs-4">
+			<div class="well">
+				<h4 class="category-header">
+					<a href="#">wrte</a>
+				</h4>
+				<!-- <h3> {{ hey }} </h3> -->
+				<div>
+					<ul>
+					{% for card in active_wrte_cards %}
+						<li>{{ card }}</li>
+					{% endfor %}
+					</ul>
+
+				</div>
+
+			</div> <!-- well -->
+		</div> <!-- col -->
+
+	</div> <!-- row #3 utfh, erth and wrte -->
 
 {% endblock %}
 

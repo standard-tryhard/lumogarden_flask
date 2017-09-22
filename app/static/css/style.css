@@ -22,10 +22,11 @@ body {
 .well {
 	background-color: #777;
 	border: none;
-	min-height: 150px;
+	min-height: 189px;
 }
 
 div.well ul  {
 	list-style-type: none;
+	padding: 10px;
 }
 
