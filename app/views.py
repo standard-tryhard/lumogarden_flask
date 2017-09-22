@@ -7,21 +7,24 @@ import db_queries
 @lumo_hub.route('/grids/')
 def grids():
 
+	active_blocks = db_queries.query_active_blocks()
+
 	
 	# print(arte_card)
 	# tasks = [t for t in task = #arte_card['tasks'][:3]
 
 	return render_template('grids.html',  
-							active_lght_cards=db_queries.query_by_grid('lght'),
-							active_care_cards=db_queries.query_by_grid('care'),
-							active_arte_cards=db_queries.query_by_grid('arte'),
+					tl=db_queries.query_by_grid(active_blocks['top_left']),
+					tm=db_queries.query_by_grid(active_blocks['top_mid']),
+					tr=db_queries.query_by_grid(active_blocks['top_right']),
 
-							active_soft_cards=db_queries.query_by_grid('soft'),
-							active_musc_cards=db_queries.query_by_grid('musc'),
+					ml=db_queries.query_by_grid(active_blocks['mid_left']),
+					mr=db_queries.query_by_grid(active_blocks['mid_right']),
 
-							active_utfh_cards=db_queries.query_by_grid('utfh'),
-							active_erth_cards=db_queries.query_by_grid('erth'),
-							active_wrte_cards=db_queries.query_by_grid('wrte')
+					bl=db_queries.query_by_grid(active_blocks['botm_left']),
+					bm=db_queries.query_by_grid(active_blocks['botm_mid']),
+					br=db_queries.query_by_grid(active_blocks['botm_right']),
+					active_blocks=active_blocks
 							)
 
 

@@ -3,17 +3,18 @@
 
 	<h3 class="top-header">LUMOGRIDS</h3>
 
+
 	<div class="row">
 		
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-					<a href="#">lght</a>
+					<a href="#">{{ active_blocks['top_left'] }}</a>
 				</h4>
 				<!-- <h3> {{ hey }} </h3> -->
 				<div>
 					<ul>
-					{% for card in active_lght_cards %}
+					{% for card in tl %}
 						<li>{{ card }}</li>
 					{% endfor %}
 					</ul>
@@ -26,12 +27,12 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-					<a href="#">care</a>
+					<a href="#">{{ active_blocks['top_mid'] }}</a>
 				</h4>
 				<!-- <h3> {{ hey }} </h3> -->
 				<div>
 					<ul>
-					{% for card in active_care_cards %}
+					{% for card in tm %}
 						<li>{{ card }}</li>
 					{% endfor %}
 					</ul>
@@ -44,12 +45,12 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-					<a href="#">arte</a>
+					<a href="#">{{ active_blocks['top_right'] }}</a>
 				</h4>
 				<!-- <h3> {{ hey }} </h3> -->
 				<div>
 					<ul>
-					{% for card in active_arte_cards %}
+					{% for card in tr %}
 						<li>{{ card }}</li>
 					{% endfor %}
 					</ul>
@@ -68,12 +69,12 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-					<a href="#">soft</a>
+					<a href="#">{{ active_blocks['mid_left'] }}</a>
 				</h4>
 				<!-- <h3> {{ hey }} </h3> -->
 				<div>
 					<ul>
-					{% for card in active_soft_cards %}
+					{% for card in ml %}
 						<li>{{ card }}</li>
 					{% endfor %}
 					</ul>
@@ -102,12 +103,12 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-					<a href="#">musc</a>
+					<a href="#">{{ active_blocks['mid_right'] }}</a>
 				</h4>
 				<!-- <h3> {{ hey }} </h3> -->
 				<div>
 					<ul>
-					{% for card in active_musc_cards %}
+					{% for card in mr %}
 						<li>{{ card }}</li>
 					{% endfor %}
 					</ul>
@@ -126,12 +127,12 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-					<a href="#">utfh</a>
+					<a href="#">{{ active_blocks['botm_left'] }}</a>
 				</h4>
 				<!-- <h3> {{ hey }} </h3> -->
 				<div>
 					<ul>
-					{% for card in active_utfh_cards %}
+					{% for card in bl %}
 						<li>{{ card }}</li>
 					{% endfor %}
 					</ul>
@@ -144,12 +145,12 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-					<a href="#">erth</a>
+					<a href="#">{{ active_blocks['botm_mid'] }}</a>
 				</h4>
 				<!-- <h3> {{ hey }} </h3> -->
 				<div>
 					<ul>
-					{% for card in active_erth_cards %}
+					{% for card in bm %}
 						<li>{{ card }}</li>
 					{% endfor %}
 					</ul>
@@ -162,12 +163,12 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-					<a href="#">wrte</a>
+					<a href="#">{{ active_blocks['botm_right'] }}</a>
 				</h4>
 				<!-- <h3> {{ hey }} </h3> -->
 				<div>
 					<ul>
-					{% for card in active_wrte_cards %}
+					{% for card in br %}
 						<li>{{ card }}</li>
 					{% endfor %}
 					</ul>
@@ -179,5 +180,10 @@
 
 	</div> <!-- row #3 utfh, erth and wrte -->
 
+<!-- 	<div class="row">
+		<div class="well">
+		</div>
+	</div>
+ -->
 {% endblock %}
 
