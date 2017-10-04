@@ -1,0 +1,11 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form action="" method="post" name="new_card_name">
+        {{ form.new_card_name(size=80, placeholder="New card: ") }}
+        {{ form.new_card_steps(placeholder="e.g. Consider the sky ") }}
+    </form>
+
+{% endblock %}

@@ -10,6 +10,10 @@ __pycache__/
 .DS_Store
 app/.DS_Store
 
+# .idea
+.idea/
+
+
 # Distribution / packaging
 .Python
 app/__pycache__/

@@ -1,4 +1,4 @@
-from app.card import Card
+from app.cards import Card
 import config
 
 config.global_init()
