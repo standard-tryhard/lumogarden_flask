@@ -1,6 +1,4 @@
 import mongoengine
-
-from app.card import Card
 from config import global_init
 
 
@@ -35,11 +33,6 @@ class Block(mongoengine.Document):
         'db_alias': 'core',
         'collection': 'Block'
     }
-
-
-blcks = ['soft', 'musc', 'utfh', 'erth', 'wrte']
-pstns = ['mid_left', 'mid_right', 'botm_left', 'botm_mid', 'botm_right']
-
 
 
 # test = Block.objects[0]

@@ -30,3 +30,13 @@ div.well ul  {
 	padding: 10px;
 }
 
+a {
+    color: black;
+}
+
+a:hover {
+ 	color: black;
+ 	text-decoration: underline;
+ 	text-decoration-color: red;
+}
+
