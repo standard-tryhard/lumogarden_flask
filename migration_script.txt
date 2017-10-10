@@ -12,3 +12,18 @@ for each subfolder in the lumorun_folder:
 				card_steps.step_name = line
 				update = ... *push update steps
 				card_steps.step_no += 1
+
+
+# Import the os module, for the os.walk function
+import os
+ 
+# Set the directory you want to start from
+rootDir = '.'
+for dirName, subdirList, fileList in os.walk(rootDir):
+    # garbage, dirName = dirName.split('./')
+    print('Found directory: %s' % dirName)
+    for fname in fileList:
+        name = fname[0:-4]
+        print('\t%s' % name)
+        # with open(fname, 'r') as fin:
+            # print(fin.readlines())
