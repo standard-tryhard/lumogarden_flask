@@ -15,20 +15,24 @@ class Card(mongoengine.Document):
     }
 
 
-steps = CardSteps()
-steps.step_name = "Find mouse"
-steps.step_no = 0
-steps.step_status = 1
+# steps = CardSteps()
+# steps.step_name = "Find mouse"
+# steps.step_no = 0
+# steps.step_status = 1
 
-test = Card()
-test.name = 'moo'
 
-babies = CardSteps()
-babies.step_name = 'another one'
-babies.step_no = 1
+card = Card()
+card.name = 'works in blue'.title()
 
-# updated = Card.objects(name='testie').update_one(push__steps=babies)
+card_steps = CardSteps()
+card_steps.step_name = 'email 20 galleries'
+card_steps.step_no = 1
+
+# card.save()
+
+updated = Card.objects(name='works in blue'.title()).update_one(push__steps=card_steps)
 
 if __name__ == '__main__':
     print('ok')
 
+print(updated)
