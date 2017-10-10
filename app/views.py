@@ -6,8 +6,8 @@ from app.forms import NewCardForm
 
 
 @lumo_hub.route('/')
-@lumo_hub.route('/grids/')
-def grids():
+@lumo_hub.route('/blocks/')
+def blocks():
 
     tl = Block.objects.get(position='top_left')
     tm = Block.objects.get(position='top_mid')
@@ -18,7 +18,7 @@ def grids():
     bm = Block.objects.get(position='botm_mid')
     br = Block.objects.get(position='botm_right')
 
-    return render_template('grids.html',
+    return render_template('blocks.html',
                            tl=tl,
                            tm=tm,
                            tr=tr,
