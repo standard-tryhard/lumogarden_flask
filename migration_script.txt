@@ -1,0 +1,14 @@
+python.os.open(lumorun_folder)
+
+for each subfolder in the lumorun_folder:
+	for each file in each subfolder:
+		card = Card()
+		card.name = name_of_text_file.txt
+		card.save()
+		card_steps = CardSteps()
+		card_steps.step_no = 0
+		with open(open the text file) as fin:
+			for line in fin.readlines() *make sure no spaces:
+				card_steps.step_name = line
+				update = ... *push update steps
+				card_steps.step_no += 1
