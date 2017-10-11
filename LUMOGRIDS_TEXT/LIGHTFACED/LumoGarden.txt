@@ -1,0 +1,33 @@
+9 blocks mapped to the positions
+assert blocks are default when not specified; blocks are not duplicated in different positions; moving a block to a new location swaps or inserts
+
+Flask Rest
+Learn about Rest/ Rest Tutorials
+Typescript
+React
+LumoGarden CLI
+
+
+COMPUTER PYTHON APP
+Add reflections data collection --> track coding
+Add reflections data collection --> track painting / art
+Add reflections data collection --> track sleep time
+
+DESIGN
+Feather Assets: start with 3, (could I work up to 30 iterations?)
+Wireframe assets online (free)
+Mockups Assets
+
+APP
+	Flask
+		-Tutorial #2: Flaskr
+		-Tutorial #1: Mega Flask
+
+		- Button --> delete current task / autoload slice
+		- save tasks until project is done then delete tasks
+		- Select "active" jars
+
+	Toga / BeeWare
+
+NOTES
+A fish screen

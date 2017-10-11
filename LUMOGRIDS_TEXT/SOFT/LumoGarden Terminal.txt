@@ -1,0 +1,2 @@
+lightwalkclose --> remove night tasks, add them to lightwalk
+lightwalkclose --> triggers night journaling, bookends the day

@@ -1,0 +1,8 @@
+export grep environment for -E option
+export nano environment for -x option
+can sed have an “-i” option
+bash scripting
+sed
+grep
+git
+outargs

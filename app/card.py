@@ -6,8 +6,8 @@ global_init()
 
 
 class Card(mongoengine.Document):
-    name = mongoengine.StringField()
-    steps = mongoengine.EmbeddedDocumentListField(CardSteps)
+    card_name = mongoengine.StringField()
+    card_steps = mongoengine.EmbeddedDocumentListField(CardSteps)
 
     meta = {
         'db_alias': 'core',
@@ -15,24 +15,17 @@ class Card(mongoengine.Document):
     }
 
 
-# steps = CardSteps()
-# steps.step_name = "Find mouse"
-# steps.step_no = 0
-# steps.step_status = 1
-
-
-card = Card()
-card.name = 'works in blue'.title()
-
-card_steps = CardSteps()
-card_steps.step_name = 'email 20 galleries'
-card_steps.step_no = 1
-
+# card = Card()
+# card.card_name = 'baby bear'.title()
+#
+# card_steps = CardSteps()
+# card_steps.step_name = 'email 20 galleries'
+# card_steps.step_no = 1
+#
 # card.save()
 
-updated = Card.objects(name='works in blue'.title()).update_one(push__steps=card_steps)
+# updated = Card.objects(card_name='Baby Bear').update_one(push__card_steps=card_steps)
 
 if __name__ == '__main__':
     print('ok')
 
-print(updated)
