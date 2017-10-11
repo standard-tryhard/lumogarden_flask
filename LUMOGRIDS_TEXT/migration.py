@@ -2,6 +2,7 @@ import os
 import codecs
 from argparse import ArgumentParser
 from app.card import Card
+from app.card_steps import CardSteps
 
 
 def envelope(text_file):
@@ -32,53 +33,43 @@ def iterate_up_on_it(directory='.'):
             if fname.startswith('.DS_'):
                 continue
 
-            name_from_file = fname[0:-4]
+            name_from_txt = fname[0:-4]
+            created_card_ref = name_from_txt.title()
 
-
-
-            if not Card.objects(card_name=name_from_file):
+            if not Card.objects(card_name=name_from_txt):
                 new_card = Card()
-                new_card.name_from_file = name_from_file.title()
+                new_card.card_in_jar = dir_name.lower()
+                new_card.card_name = name_from_txt.title()
 
             else:
                 print("You've already got:  ...{}...".format(
-                                                    name_from_file.upper()))
-
+                                                    name_from_txt.upper()))
 
             open_me = ('{}/{}'.format(dir_name, fname))
 
+            new_card.save()
+
             card_tasks = envelope(open_me)
-            print()
-            print(name.upper())
+            card_steps = CardSteps()
 
-            for ct in card_tasks:
-                card_steps = CardSteps()
-                card_steps.step_name = ct
+            print("{} created".format(new_card.card_name))
 
-                print(ct)
+            i = 0
+            if card_tasks:
+                for ct in card_tasks:
+                    print('task added to {}:.....{}'.format(name_from_txt, ct))
+                    card_steps.step_name = ct
+                    card_steps.step_no = i
+                    i += 1
 
+                    updated = Card.objects(
+                        card_name=created_card_ref).update_one(
+                        push__card_steps=card_steps)
+                    print('status: {}'.format(updated))
 
-
-
-# steps = CardSteps()
-# steps.step_name = "Find mouse"
-# steps.step_no = 0
-# steps.step_status = 1
-
-
-# card = Card()
-# card.name = 'works in blue'.title()
-#
-# card_steps = CardSteps()
-# card_steps.step_name = 'email 20 galleries'
-# card_steps.step_no = 1
-
-# card.save()
-
-# updated = Card.objects(name='works in blue'.title()).update_one(push__steps=card_steps)
-
+            else:
+                print('none to add')
 
 
 if __name__ == '__main__':
-    iterate_up_on_it('ARTE')
-
+    iterate_up_on_it('WRTE')

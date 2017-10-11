@@ -6,8 +6,10 @@ global_init()
 
 
 class Card(mongoengine.Document):
-    card_name = mongoengine.StringField()
+    card_name = mongoengine.StringField(required=True)
+    card_in_jar = mongoengine.StringField(required=True)
     card_steps = mongoengine.EmbeddedDocumentListField(CardSteps)
+
 
     meta = {
         'db_alias': 'core',
