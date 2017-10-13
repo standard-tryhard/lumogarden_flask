@@ -5,6 +5,7 @@ from app.card import Card
 from app.data_manipulation import get_incmplts
 from app.forms import NewCardForm
 
+
 template_card = Card.objects(card_name='...').get()
 
 @lumo_hub.route('/')
@@ -72,7 +73,9 @@ def jars(jar_from_url):
 
     # return render_template('jars.html', jar_from_url=get_jar_positions('money'))
 
-    return render_template('jars.html', positions_dict)
+    return render_template('jars.html',
+                           positions_dict=positions_dict,
+                           next_actionable_steps=next_actionable_steps)
 
 
 @lumo_hub.route('/new_card/', methods=['GET', 'POST'])

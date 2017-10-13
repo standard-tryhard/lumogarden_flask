@@ -1,3 +1,5 @@
+from itertools import islice
+
 def get_incmplts(card, stop_sign=3):
     incmplts_all = (c.step_name for c in card.card_steps if
                        c.step_status == 0)
