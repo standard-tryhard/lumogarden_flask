@@ -1,6 +1,7 @@
 import mongoengine
 from app.card_steps import CardSteps
 from config import global_init
+from itertools import islice
 
 global_init()
 
@@ -8,6 +9,7 @@ global_init()
 class Card(mongoengine.Document):
     card_name = mongoengine.StringField(required=True)
     card_in_jar = mongoengine.StringField(required=True)
+    card_active = mongoengine.StringField(default='inactive')
     card_steps = mongoengine.EmbeddedDocumentListField(CardSteps)
 
 
@@ -17,17 +19,17 @@ class Card(mongoengine.Document):
     }
 
 
-# card = Card()
-# card.card_name = 'baby bear'.title()
-#
-# card_steps = CardSteps()
-# card_steps.step_name = 'email 20 galleries'
-# card_steps.step_no = 1
-#
-# card.save()
-
-# updated = Card.objects(card_name='Baby Bear').update_one(push__card_steps=card_steps)
 
 if __name__ == '__main__':
-    print('ok')
+    # data = Card.objects().update(set__card_active='inactive')
+
+
+    card = Card.objects().get(card_name='People In The Tree')
+
+    all_incompletes = (c.step_name for c in card.card_steps if c.step_status == 0)
+    three_incompletes = list(islice(all_incompletes, 3))
+
+    print(three_incompletes)
+
+
 
