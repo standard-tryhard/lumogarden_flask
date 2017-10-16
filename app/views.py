@@ -21,16 +21,18 @@ def blocks():
     bm = Block.objects.get(position='botm_mid')
     br = Block.objects.get(position='botm_right')
 
-    return render_template('blocks.html',
-                           tl=tl,
-                           tm=tm,
-                           tr=tr,
-                           ml=ml,
-                           mr=mr,
-                           bl=bl,
-                           bm=bm,
-                           br=br)
+    block_positions = {}
+    block_positions['tl'] = tl
+    block_positions['tm'] = tm
+    block_positions['tr'] = tr
+    block_positions['ml'] = ml
+    block_positions['mr'] = mr
+    block_positions['bl'] = bl
+    block_positions['bm'] = bm
+    block_positions['br'] = br
 
+    return render_template('blocks.html',
+                           block_positions=block_positions)
 
 @lumo_hub.route('/jars/<string:jar_from_url>/')
 def jars(jar_from_url):
@@ -57,15 +59,15 @@ def jars(jar_from_url):
     bm = get_jar_positions('botm_mid')
     br = get_jar_positions('botm_right')
 
-    positions_dict = {}
-    positions_dict['tl'] = tl
-    positions_dict['tm'] = tm
-    positions_dict['tr'] = tr
-    positions_dict['ml'] = ml
-    positions_dict['mr'] = mr
-    positions_dict['bl'] = bl
-    positions_dict['bm'] = bm
-    positions_dict['br'] = br
+    jar_positions = {}
+    jar_positions['tl'] = tl
+    jar_positions['tm'] = tm
+    jar_positions['tr'] = tr
+    jar_positions['ml'] = ml
+    jar_positions['mr'] = mr
+    jar_positions['bl'] = bl
+    jar_positions['bm'] = bm
+    jar_positions['br'] = br
 
     next_actionable_steps = {}
     next_actionable_steps['tl'] = get_incmplts(tl)
@@ -74,7 +76,7 @@ def jars(jar_from_url):
     # return render_template('jars.html', jar_from_url=get_jar_positions('money'))
 
     return render_template('jars.html',
-                           positions_dict=positions_dict,
+                           jar_positions=jar_positions,
                            next_actionable_steps=next_actionable_steps)
 
 

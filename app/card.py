@@ -26,10 +26,6 @@ if __name__ == '__main__':
 
     card = Card.objects().get(card_name='People In The Tree')
 
-    all_incompletes = (c.step_name for c in card.card_steps if c.step_status == 0)
-    three_incompletes = list(islice(all_incompletes, 3))
-
-    print(three_incompletes)
 
 
 
