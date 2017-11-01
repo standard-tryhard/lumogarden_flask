@@ -3,7 +3,7 @@ from app import lumo_hub
 from app.block import Block
 from app.card import Card
 from app.data_manipulation import get_incmplts
-from app.forms import NewCardForm
+from app.forms import NewCardForm, Buttons
 
 
 template_card = Card.objects(card_name='...').get()
@@ -36,7 +36,7 @@ def blocks():
 
 @lumo_hub.route('/jars/<string:jar_from_url>/')
 def jars(jar_from_url):
-
+    jar_buttons=Buttons()
 
     def get_jar_positions(position):
         if Card.objects(card_in_jar=jar_from_url,
@@ -71,13 +71,22 @@ def jars(jar_from_url):
 
     next_actionable_steps = {}
     next_actionable_steps['tl'] = get_incmplts(tl)
+    next_actionable_steps['tm'] = get_incmplts(tm)
+    next_actionable_steps['tr'] = get_incmplts(tr)
+    next_actionable_steps['ml'] = get_incmplts(ml)
+    next_actionable_steps['mr'] = get_incmplts(mr)
+    next_actionable_steps['bl'] = get_incmplts(bl)
+    next_actionable_steps['bm'] = get_incmplts(bm)
+    next_actionable_steps['br'] = get_incmplts(br)
+
 
 
     # return render_template('jars.html', jar_from_url=get_jar_positions('money'))
 
     return render_template('jars.html',
                            jar_positions=jar_positions,
-                           next_actionable_steps=next_actionable_steps)
+                           next_actionable_steps=next_actionable_steps,
+                           jar_buttons=jar_buttons)
 
 
 @lumo_hub.route('/new_card/', methods=['GET', 'POST'])

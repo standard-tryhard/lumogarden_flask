@@ -1,2 +1,0 @@
-python CLI for email
-Mutt config

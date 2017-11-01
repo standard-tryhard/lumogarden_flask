@@ -3,9 +3,15 @@
 
 {% block content %}
 
-    <form action="" method="post" name="new_card_name">
+    <form action="http://localhost:5000//api/lumogarden/card/<string:card_name>"
+          method="post" name="new_card_name">
         {{ form.new_card_name(size=80, placeholder="New card: ") }}
-        {{ form.new_card_steps(placeholder="e.g. Consider the sky ") }}
+        {{ form.new_card_steps(size=80, placeholder="e.g. Consider the sky ") }}
+        <div>
+            {{ form.add_task }}
+        </div>
     </form>
 
 {% endblock %}
+
+      <!--<form action = "http://localhost:5000/result" method = "POST">-->
