@@ -1,14 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-	<h3 class="top-header">LUMOGRIDS</h3>
+
+    <h3 class="top-header">LUMOGARDEN: BLOCKS</h3>
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
 
 	<div class="row">
 
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-                    <a href="/jars/{{ block_positions['tl'].block_name }}">
+                    <a href="{{ url_for('jars',
+                                jar_from_url=block_positions['tl'].block_name)
+                             }}">
                         {{ block_positions['tl'].block_name }}
                     </a>
                 </h4>
@@ -24,7 +30,9 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-                    <a href="/jars/{{ block_positions['tm'].block_name }}">
+                    <a href="{{ url_for('jars',
+                                jar_from_url=block_positions['tm'].block_name)
+                             }}">
                         {{ block_positions['tm'].block_name }}
                     </a>
 				</h4>
@@ -40,7 +48,9 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-                    <a href="/jars/{{ block_positions['tr'].block_name }}">
+                    <a href="{{ url_for('jars',
+                                jar_from_url=block_positions['tr'].block_name)
+                             }}">
                         {{ block_positions['tr'].block_name }}
                     </a>
 				</h4>
@@ -65,7 +75,9 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-                    <a href="/jars/{{ block_positions['ml'].block_name }}">
+                    <a href="{{ url_for('jars',
+                                jar_from_url=block_positions['ml'].block_name)
+                             }}">
                         {{ block_positions['ml'].block_name }}
                     </a>
 				</h4>
@@ -78,21 +90,26 @@
 			</div> <!-- well -->
 		</div> <!-- col -->
 
+
+
 		<div class="col-xs-4">
 			<div class="well">
-				<div id="bloom">
-                    <a>bloom</a>
-				</div>
                 <h4 class="category-header">
 				</h4>
-
+				<div id="bloom">
+                    {{ form.submit }}
+				</div>
 			</div> <!-- well -->
 		</div> <!-- col -->
+
+
 
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-                    <a href="/jars/{{ block_positions['mr'].block_name }}">
+                    <a href="{{ url_for('jars',
+                                jar_from_url=block_positions['mr'].block_name)
+                             }}">
                         {{ block_positions['mr'].block_name }}
                     </a>
 				</h4>
@@ -117,7 +134,9 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-                    <a href="/jars/{{ block_positions['bl'].block_name }}">
+                    <a href="{{ url_for('jars',
+                                jar_from_url=block_positions['bl'].block_name)
+                             }}">
                         {{ block_positions['bl'].block_name }}
                     </a>
 				</h4>
@@ -133,7 +152,9 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-                    <a href="/jars/{{ block_positions['bm'].block_name }}">
+                    <a href="{{ url_for('jars',
+                                jar_from_url=block_positions['bm'].block_name)
+                             }}">
                         {{ block_positions['bm'].block_name }}
                     </a>
 				</h4>
@@ -149,7 +170,9 @@
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
-                    <a href="/jars/{{ block_positions['br'].block_name }}">
+                    <a href="{{ url_for('jars',
+                                jar_from_url=block_positions['br'].block_name)
+                             }}">
                         {{ block_positions['br'].block_name }}
                     </a>
 				</h4>
@@ -163,19 +186,7 @@
 		</div> <!-- col -->
 
 	</div> <!-- row #3 -->
-
-
-
-<!-- ################ -->
-
-
-	<!-- <div class="row">
-		<div class="well">
-			<p>{{ active_jars }}</p>
-		</div>
-	</div> -->
-
-
+    </form>
 
 
 {% endblock %}

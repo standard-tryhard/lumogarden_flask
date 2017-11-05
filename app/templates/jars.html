@@ -1,10 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-	<h3 class="top-header"><a href="/">LUMOGARDEN</a></h3>
+
+	<h3 class="top-header">
+        <a id="header_link" href="{{ url_for('blocks') }}">LUMOGARDEN: {{jar_name}}</a>
+    </h3>
+
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
 
 	<div class="row">
-		
+
 		<div class="col-xs-4">
 			<div class="well">
 				<h4 class="category-header">
@@ -13,7 +20,7 @@
 				<div>
 					<ul>
                         {% for step in next_actionable_steps['tl'] %}
-                        <li>{{ step[:15] + '...'}}{{ jar_buttons.checkbox }}</li>
+                        <li>{{ step[:15] + '...'}}{{ form.checkbox }}</li>
                         {% endfor %}
 					</ul>
 
@@ -30,7 +37,7 @@
 				<div>
 					<ul>
 						{% for step in next_actionable_steps['tm'] %}
-                        <li>{{ step[:15] + '...'}}{{ jar_buttons.checkbox }}</li>
+                        <li>{{ step[:15] + '...'}}{{ form.checkbox }}</li>
                         {% endfor %}
 					</ul>
 
@@ -47,7 +54,7 @@
 				<div>
 					<ul>
                         {% for step in next_actionable_steps['tr'] %}
-                        <li>{{ step[:15] + '...'}}{{ jar_buttons.checkbox }}</li>
+                        <li>{{ step[:15] + '...'}}{{ form.checkbox }}</li>
                         {% endfor %}
 					</ul>
 
@@ -83,11 +90,9 @@
 			<div class="well">
 				<h4 class="category-header">
 				</h4>
-				<div>
-                    <p style="text-align:center">button</p>
-                    <!--<button class="btn btn-info">bloom</button>-->
-				</div>
-
+                <div id="bloom">
+                    {{ form.submit }}
+                </div>
 			</div> <!-- well -->
 		</div> <!-- col -->
 
@@ -157,18 +162,7 @@
 		</div> <!-- col -->
 
 	</div> <!-- row #3 -->
-
-
-
-<!-- ################ -->
-
-
-	<!-- <div class="row">
-		<div class="well">
-		</div>
-	</div> -->
-
-
+	</form>
 
 
 {% endblock %}

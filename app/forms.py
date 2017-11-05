@@ -10,3 +10,4 @@ class NewCardForm(FlaskForm):
 
 class Buttons(FlaskForm):
     checkbox = BooleanField('checkbox')
+    submit = SubmitField('Bloom')

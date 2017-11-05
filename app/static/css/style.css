@@ -64,6 +64,10 @@ a:hover {
  	text-decoration: none;
 }
 
+#header_link:hover {
+    font-weight: 200;
+}
+
 #bloom {
 
     color: #333;
