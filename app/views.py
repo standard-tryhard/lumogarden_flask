@@ -111,7 +111,6 @@ def jars(jar_from_url):
     #  form.chk_tr_R2.label,
     #  form.chk_tr_R3.label) = [action[:25] for action in next_actions['tr']]
 
-    tl.update(set__card_steps__step_no__0=1)
 
     if form.validate_on_submit():
             # for field in form:
@@ -133,3 +132,5 @@ def new_card():
                             form=form)
 
 
+hey = tl.card_steps.get(step_no__0)
+# tl.update_one(set__card_steps__step_no__0=1)
