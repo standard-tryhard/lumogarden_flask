@@ -2,7 +2,7 @@
 {% block content %}
 
 
-	<h3 class="top-header">
+    <h3 class="top-header">
         <a id="header_link" href="{{ url_for('blocks') }}">LUMOGARDEN: {{jar_name}}</a>
     </h3>
 
@@ -10,60 +10,60 @@
     <form method="POST">
         {{ form.hidden_tag() }}
 
-	<div class="row">
+    <div class="row">
 
-		<div class="col-xs-4">
-			<div class="well">
-				<h4 class="category-header">
+        <div class="col-xs-4">
+            <div class="well">
+                <h4 class="category-header">
                     {{ jar_positions['tl'].card_name }}
-				</h4>
-				<div>
-					<ul>
-                        {% for step in next_actionable_steps['tl'] %}
-                        <li>{{ step[:15] + '...'}}{{ form.checkbox }}</li>
-                        {% endfor %}
-					</ul>
+                </h4>
+                <div>
+                    <ul>
+                        {{ b }}
+                        {{ form.chk_tl_L1.label}} {{ form.chk_tl_L1 }}<br>
+                        {{ form.chk_tl_L2.label}} {{ form.chk_tl_L2 }}<br>
+                        {{ form.chk_tl_L3.label}} {{ form.chk_tl_L3 }}<br>
+                    </ul>
 
-				</div>
+                </div>
 
-			</div> <!-- well -->
-		</div> <!-- col -->
+            </div> <!-- well -->
+        </div> <!-- col -->
 
-		<div class="col-xs-4">
-			<div class="well">
-				<h4 class="category-header">
+        <div class="col-xs-4">
+            <div class="well">
+                <h4 class="category-header">
                     {{ jar_positions['tm'].card_name }}
-				</h4>
-				<div>
-					<ul>
-						{% for step in next_actionable_steps['tm'] %}
-                        <li>{{ step[:15] + '...'}}{{ form.checkbox }}</li>
-                        {% endfor %}
-					</ul>
+                </h4>
+                <div>
+                    <ul>
+                        {{ form.chk_tm_M1.label}} {{ form.chk_tm_M1 }}<br>
+                        {{ form.chk_tm_M2.label}} {{ form.chk_tm_M2 }}<br>
+                        {{ form.chk_tm_M3.label}} {{ form.chk_tm_M3 }}<br>
+                    </ul>
 
-				</div>
+                </div>
 
-			</div> <!-- well -->
-		</div> <!-- col -->
+            </div> <!-- well -->
+        </div> <!-- col -->
 
-		<div class="col-xs-4">
-			<div class="well">
-				<h4 class="category-header">
+        <div class="col-xs-4">
+            <div class="well">
+                <h4 class="category-header">
                     {{ jar_positions['tr'].card_name }}
-				</h4>
-				<div>
-					<ul>
-                        {% for step in next_actionable_steps['tr'] %}
-                        <li>{{ step[:15] + '...'}}{{ form.checkbox }}</li>
-                        {% endfor %}
-					</ul>
+                </h4>
+                <div>
+                    <ul>
+                        {{ form.chk_tr_R1.label}} {{ form.chk_tr_R1 }}<br>
+                        {{ form.chk_tr_R2.label}} {{ form.chk_tr_R2 }}<br>
+                        {{ form.chk_tr_R3.label}} {{ form.chk_tr_R3 }}<br>
+                    </ul>
+                </div>
 
-				</div>
+            </div> <!-- well -->
+        </div> <!-- col -->
 
-			</div> <!-- well -->
-		</div> <!-- col -->
-
-	</div> <!-- row #1 -->
+    </div> <!-- row #1 -->
 
 
 
@@ -71,46 +71,46 @@
 
 
 <div class="row">
-		
-		<div class="col-xs-4">
-			<div class="well">
-				<h4 class="category-header">
-					{{ jar_positions['ml'].card_name }}
-				</h4>
-				<div>
-					<ul>
-					</ul>
 
-				</div>
+        <div class="col-xs-4">
+            <div class="well">
+                <h4 class="category-header">
+                    {{ jar_positions['ml'].card_name }}
+                </h4>
+                <div>
+                    <ul>
+                    </ul>
 
-			</div> <!-- well -->
-		</div> <!-- col -->
+                </div>
 
-		<div class="col-xs-4">
-			<div class="well">
-				<h4 class="category-header">
-				</h4>
+            </div> <!-- well -->
+        </div> <!-- col -->
+
+        <div class="col-xs-4">
+            <div class="well">
+                <h4 class="category-header">
+                </h4>
                 <div id="bloom">
                     {{ form.submit }}
                 </div>
-			</div> <!-- well -->
-		</div> <!-- col -->
+            </div> <!-- well -->
+        </div> <!-- col -->
 
-		<div class="col-xs-4">
-			<div class="well">
-				<h4 class="category-header">
+        <div class="col-xs-4">
+            <div class="well">
+                <h4 class="category-header">
                     {{ jar_positions['mr'].card_name }}
-				</h4>
-				<div>
-					<ul>
-					</ul>
+                </h4>
+                <div>
+                    <ul>
+                    </ul>
 
-				</div>
+                </div>
 
-			</div> <!-- well -->
-		</div> <!-- col -->
+            </div> <!-- well -->
+        </div> <!-- col -->
 
-	</div> <!-- row #2 -->
+    </div> <!-- row #2 -->
 
 
 
@@ -118,51 +118,51 @@
 
 
 <div class="row">
-		
-		<div class="col-xs-4">
-			<div class="well">
-				<h4 class="category-header">
+
+        <div class="col-xs-4">
+            <div class="well">
+                <h4 class="category-header">
                     {{ jar_positions['bl'].card_name }}
-				</h4>
-				<div>
-					<ul>
-					</ul>
+                </h4>
+                <div>
+                    <ul>
+                    </ul>
 
-				</div>
+                </div>
 
-			</div> <!-- well -->
-		</div> <!-- col -->
+            </div> <!-- well -->
+        </div> <!-- col -->
 
-		<div class="col-xs-4">
-			<div class="well">
-				<h4 class="category-header">
+        <div class="col-xs-4">
+            <div class="well">
+                <h4 class="category-header">
                     {{ jar_positions['bm'].card_name }}
-				</h4>
-				<div>
-					<ul>
-					</ul>
+                </h4>
+                <div>
+                    <ul>
+                    </ul>
 
-				</div>
+                </div>
 
-			</div> <!-- well -->
-		</div> <!-- col -->
+            </div> <!-- well -->
+        </div> <!-- col -->
 
-		<div class="col-xs-4">
-			<div class="well">
-				<h4 class="category-header">
+        <div class="col-xs-4">
+            <div class="well">
+                <h4 class="category-header">
                     {{ jar_positions['br'].card_name }}
-				</h4>
-				<div>
-					<ul>
-					</ul>
+                </h4>
+                <div>
+                    <ul>
+                    </ul>
 
-				</div>
+                </div>
 
-			</div> <!-- well -->
-		</div> <!-- col -->
+            </div> <!-- well -->
+        </div> <!-- col -->
 
-	</div> <!-- row #3 -->
-	</form>
+    </div> <!-- row #3 -->
+    </form>
 
 
 {% endblock %}
