@@ -1,4 +1,4 @@
-Lumo: Garden
+lumogarden
 ============
 
 An organizational app based on WPI/Kanban methodology. 
