@@ -11,7 +11,10 @@
             {{ form.new_card_jar(size=80, placeholder="What category: ") }}<br>
             {% for error in form.new_card_jar.errors %}[{{ error }}]{% endfor %}<br>
 
-            {{ form.new_card_steps(placeholder="e.g. Consider the sky ") }}
+            <div>
+                {{ form.new_card_steps }}
+            </div>
+
             <div>
                 {{ form.submit }}
             </div>

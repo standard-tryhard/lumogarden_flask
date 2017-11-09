@@ -10,7 +10,7 @@ template_card = Card.objects(card_name='...').get()
 
 @lumo_hub.route('/', methods=['GET', 'POST'])
 @lumo_hub.route('/blocks/', methods=['GET', 'POST'])
-def blocks():
+def blocks_view():
     form = TodoButtons()
 
     tl = Block.objects.get(position='top_left')
@@ -34,7 +34,6 @@ def blocks():
         }
 
     if form.validate_on_submit():
-        print('hey')
         return redirect(url_for('blocks'))
 
     return render_template('blocks.html',
@@ -43,7 +42,7 @@ def blocks():
 
 
 @lumo_hub.route('/jars/<string:jar_from_url>/', methods=['GET', 'POST'])
-def jars(jar_from_url):
+def jars_view(jar_from_url):
 
     def get_jar_positions(position):
         if Card.objects(card_in_jar=jar_from_url,
@@ -128,14 +127,27 @@ def jars(jar_from_url):
                            jar_name=jar_name,
                            jar_positions=jar_positions,
                            form=form)
+
+
+# I'd like to put in some kind of save message or something...
+# ...or... like a display new_card field...
+
 @lumo_hub.route('/new_card/', methods=['GET', 'POST'])
-def new_card():
+def new_card_view():
 
     form = NewCardForm()
 
     if form.validate_on_submit():
-        for field in form:
-            print(field)
-        return redirect(url_for('new_card'))
+
+        new_card = Card(card_name=form.new_card_name.data,
+                        card_in_jar=form.new_card_jar.data)
+
+        for field in form.new_card_steps:
+            if field.data and field.type == 'StringField':
+                print('hey')
+                # PSEUDOCODE: new_card.card_steps.append(next step...)
+
+        new_card.save()
+        return redirect(url_for('new_card_view'))
 
     return render_template('new_card.html', form=form)
