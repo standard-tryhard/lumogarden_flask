@@ -8,18 +8,6 @@ from app.forms import NewCardForm, TodoButtons
 template_card = Card.objects(card_name='...').get()
 
 
-@lumo_hub.route('/newcard/', methods=['GET', 'POST'])
-def newcard():
-    form = NewCardForm()
-
-    if form.validate_on_submit():
-        for field in form:
-            print(field)
-        return redirect(url_for('newcard'))
-
-    return render_template('newcard.html', form=form)
-
-
 @lumo_hub.route('/', methods=['GET', 'POST'])
 @lumo_hub.route('/blocks/', methods=['GET', 'POST'])
 def blocks():
@@ -127,14 +115,12 @@ def jars(jar_from_url):
 
 
     if form.validate_on_submit():
-            # I know this is 'shit' but it's the
-            # best hack I can do right now...WTF
             for field in form:
                 if field.type == 'BooleanField' and field.data:
                     c = field.name[4:6]; card = jar_positions[c]
                     n = field.id
                     card.card_steps[n].step_status = 1
-                    card.save()
+            card.save()
 
             return redirect(url_for('jars', jar_from_url=jar_from_url))
 
@@ -142,3 +128,14 @@ def jars(jar_from_url):
                            jar_name=jar_name,
                            jar_positions=jar_positions,
                            form=form)
+@lumo_hub.route('/new_card/', methods=['GET', 'POST'])
+def new_card():
+
+    form = NewCardForm()
+
+    if form.validate_on_submit():
+        for field in form:
+            print(field)
+        return redirect(url_for('new_card'))
+
+    return render_template('new_card.html', form=form)
