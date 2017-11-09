@@ -1,7 +1,6 @@
 import mongoengine
 from app.card_steps import CardSteps
 from config import global_init
-from itertools import islice
 
 global_init()
 
@@ -17,15 +16,3 @@ class Card(mongoengine.Document):
         'db_alias': 'core',
         'collection': 'Card'
     }
-
-
-
-if __name__ == '__main__':
-    # data = Card.objects().update(set__card_active='inactive')
-
-
-    card = Card.objects().get(card_name='People In The Tree')
-
-
-
-

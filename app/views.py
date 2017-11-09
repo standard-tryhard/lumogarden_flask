@@ -13,20 +13,11 @@ def newcard():
     form = NewCardForm()
 
     if form.validate_on_submit():
-        print('hey')
+        for field in form:
+            print(field)
         return redirect(url_for('newcard'))
 
     return render_template('newcard.html', form=form)
-
-@lumo_hub.route('/yummy/', methods=['GET', 'POST'])
-def yummy():
-    form = NewCardForm()
-
-    if form.validate_on_submit():
-        print('hey')
-        return redirect(url_for('yummygit'))
-
-    return render_template('yummy.html', form=form)
 
 
 @lumo_hub.route('/', methods=['GET', 'POST'])
