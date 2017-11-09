@@ -1,7 +1,4 @@
-[(https://github.com/thomasoflight/lumogarden/blob/develop/logo_splash_A_02.png)]
-[![Thing](https://github.com/thomasoflight/lumogarden/blob/develop/logo_splash_A_02.png)]
-[!(https://github.com/thomasoflight/lumogarden/blob/develop/logo_splash_A_02.png)]
-(https://github.com/thomasoflight/lumogarden/blob/develop/logo_splash_A_02.png)
+[![lumogarden logo](https://github.com/thomasoflight/lumogarden/blob/develop/logo_splash_A_02.png)]
 
 lumogarden
 ============
