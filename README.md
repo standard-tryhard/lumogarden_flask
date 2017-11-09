@@ -1,4 +1,5 @@
-[[https://github.com/thomasoflight/lumogarden/blob/develop/logo_splash_A_02.png|alt="logo"]]
+[(https://github.com/thomasoflight/lumogarden/blob/develop/logo_splash_A_02.png|alt="logo")]
+
 
 lumogarden
 ============
