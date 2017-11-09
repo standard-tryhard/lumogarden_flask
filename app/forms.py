@@ -1,13 +1,12 @@
 from flask_wtf import FlaskForm
 from wtforms import (StringField, TextAreaField,
-                     SubmitField, BooleanField,
-                     SelectMultipleField, widgets)
+                     SubmitField, BooleanField)
 
 
 class NewCardForm(FlaskForm):
     new_card_name = StringField('new_card_name')
     new_card_steps = TextAreaField('new_card_steps')
-    add_task = SubmitField('add')
+    submit = SubmitField('add')
 
 
 # There are other ways to do this
@@ -29,12 +28,12 @@ class TodoButtons(FlaskForm):
     submit = SubmitField('Bloom')
 
 
-class ExampleForm(FlaskForm):
-
-    fields = SelectMultipleField(
-        'Form',
-        choices=[],
-        option_widget=widgets.CheckboxInput(),
-        widget=widgets.ListWidget(prefix_label=False)
-        )
+# class ExampleForm(FlaskForm):
+#
+#     fields = SelectMultipleField(
+#         'Form',
+#         choices=[],
+#         option_widget=widgets.CheckboxInput(),
+#         widget=widgets.ListWidget(prefix_label=False)
+#         )
 

@@ -2,13 +2,34 @@ from flask import render_template, redirect, url_for
 from app import lumo_hub
 from app.block import Block
 from app.card import Card
-from app.data_manipulation import get_incmplts, get_incmplts_tuple
+from app.data_manipulation import get_incmplts_tuple
 from app.forms import NewCardForm, TodoButtons
 
 template_card = Card.objects(card_name='...').get()
 
 
-@lumo_hub.route('/')
+@lumo_hub.route('/newcard/', methods=['GET', 'POST'])
+def newcard():
+    form = NewCardForm()
+
+    if form.validate_on_submit():
+        print('hey')
+        return redirect(url_for('newcard'))
+
+    return render_template('newcard.html', form=form)
+
+@lumo_hub.route('/yummy/', methods=['GET', 'POST'])
+def yummy():
+    form = NewCardForm()
+
+    if form.validate_on_submit():
+        print('hey')
+        return redirect(url_for('yummy'))
+
+    return render_template('yummy.html', form=form)
+
+
+@lumo_hub.route('/', methods=['GET', 'POST'])
 @lumo_hub.route('/blocks/', methods=['GET', 'POST'])
 def blocks():
     form = TodoButtons()
@@ -34,7 +55,8 @@ def blocks():
         }
 
     if form.validate_on_submit():
-            return redirect(url_for('blocks'))
+        print('hey')
+        return redirect(url_for('blocks'))
 
     return render_template('blocks.html',
                            block_positions=block_positions,
@@ -81,16 +103,16 @@ def jars(jar_from_url):
         'br': br
         }
 
-    next_actions = {
-        'tl': get_incmplts(tl),
-        'tm': get_incmplts(tm),
-        'tr': get_incmplts(tr),
-        'ml': get_incmplts(ml),
-        'mr': get_incmplts(mr),
-        'bl': get_incmplts(bl),
-        'bm': get_incmplts(bm),
-        'br': get_incmplts(br)
-        }
+    # next_actions = {
+    #     'tl': get_incmplts(tl),
+    #     'tm': get_incmplts(tm),
+    #     'tr': get_incmplts(tr),
+    #     'ml': get_incmplts(ml),
+    #     'mr': get_incmplts(mr),
+    #     'bl': get_incmplts(bl),
+    #     'bm': get_incmplts(bm),
+    #     'br': get_incmplts(br)
+    #     }
 
     form_data_tl = get_incmplts_tuple(tl)
     form_data_tm = get_incmplts_tuple(tm)
@@ -116,8 +138,6 @@ def jars(jar_from_url):
     if form.validate_on_submit():
             # I know this is 'shit' but it's the
             # best hack I can do right now...WTF
-
-
             for field in form:
                 if field.type == 'BooleanField' and field.data:
                     c = field.name[4:6]; card = jar_positions[c]
@@ -130,14 +150,4 @@ def jars(jar_from_url):
     return render_template('jars.html',
                            jar_name=jar_name,
                            jar_positions=jar_positions,
-                           next_actions=next_actions,
                            form=form)
-
-@lumo_hub.route('/new_card/', methods=['GET', 'POST'])
-def new_card():
-    form = NewCardForm()
-
-    return render_template('new_card.html',
-                            form=form)
-
-
