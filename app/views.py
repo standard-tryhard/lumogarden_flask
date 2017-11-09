@@ -24,7 +24,7 @@ def yummy():
 
     if form.validate_on_submit():
         print('hey')
-        return redirect(url_for('yummy'))
+        return redirect(url_for('yummygit'))
 
     return render_template('yummy.html', form=form)
 

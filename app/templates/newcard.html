@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <form method="POST">
+        {{ form.new_card_name(size=80, placeholder="New card: ") }}
+        {{ form.new_card_steps(placeholder="e.g. Consider the sky ") }}
+        {{ form.submit }}
+    </form>
+
+{% endblock %}
+
