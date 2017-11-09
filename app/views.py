@@ -93,29 +93,38 @@ def jars(jar_from_url):
         }
 
     form_data_tl = get_incmplts_tuple(tl)
+    form_data_tm = get_incmplts_tuple(tm)
     form = TodoButtons()
 
     (form.chk_tl_L1.id,
-     form.chk_tl_L1.label,
-     form.chk_tl_L1.name) = form_data_tl[0]
+     form.chk_tl_L1.label) = form_data_tl[0]
 
     (form.chk_tl_L2.id,
-     form.chk_tl_L2.label,
-     form.chk_tl_L2.name) = form_data_tl[1]
+     form.chk_tl_L2.label) = form_data_tl[1]
 
-    # (form.chk_tm_M1.label,
-    #  form.chk_tm_M2.label,
-    #  form.chk_tm_M3.label) = [action[:25] for action in next_actions['tm']]
-    #
-    # (form.chk_tr_R1.label,
-    #  form.chk_tr_R2.label,
-    #  form.chk_tr_R3.label) = [action[:25] for action in next_actions['tr']]
+    (form.chk_tl_L3.id,
+     form.chk_tl_L3.label) = form_data_tl[2]
+
+    (form.chk_tm_M1.id,
+     form.chk_tm_M1.label) = form_data_tm[0]
+
+    (form.chk_tm_M2.id,
+     form.chk_tm_M2.label) = form_data_tm[1]
+
 
 
     if form.validate_on_submit():
-            # for field in form:
-            #     if field.type == 'BooleanField' and field.data:
-            #         print('hey')
+            # I know this is 'shit' but it's the
+            # best hack I can do right now...WTF
+
+
+            for field in form:
+                if field.type == 'BooleanField' and field.data:
+                    c = field.name[4:6]; card = jar_positions[c]
+                    n = field.id
+                    card.card_steps[n].step_status = 1
+                    card.save()
+
             return redirect(url_for('jars', jar_from_url=jar_from_url))
 
     return render_template('jars.html',
@@ -132,5 +141,3 @@ def new_card():
                             form=form)
 
 
-hey = tl.card_steps.get(step_no__0)
-# tl.update_one(set__card_steps__step_no__0=1)
