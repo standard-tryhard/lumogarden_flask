@@ -17,6 +17,3 @@ class Card(mongoengine.Document):
         'collection': 'Card'
     }
 
-# new_card = Card(card_name="hello I'm being tested",
-#                 card_in_jar="arte")
-# new_card.save()

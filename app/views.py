@@ -2,6 +2,7 @@ from flask import render_template, redirect, url_for
 from app import lumo_hub
 from app.block import Block
 from app.card import Card
+from app.card_steps import CardSteps
 from app.data_manipulation import get_incmplts_tuple
 from app.forms import NewCardForm, TodoButtons
 
@@ -34,7 +35,7 @@ def blocks_view():
         }
 
     if form.validate_on_submit():
-        return redirect(url_for('blocks'))
+        return redirect(url_for('blocks_view'))
 
     return render_template('blocks.html',
                            block_positions=block_positions,
@@ -121,7 +122,7 @@ def jars_view(jar_from_url):
                     card.card_steps[n].step_status = 1
             card.save()
 
-            return redirect(url_for('jars', jar_from_url=jar_from_url))
+            return redirect(url_for('jars_view', jar_from_url=jar_from_url))
 
     return render_template('jars.html',
                            jar_name=jar_name,
@@ -142,12 +143,16 @@ def new_card_view():
         new_card = Card(card_name=form.new_card_name.data,
                         card_in_jar=form.new_card_jar.data)
 
+        new_card.save()
+        step_incr = 0
         for field in form.new_card_steps:
             if field.data and field.type == 'StringField':
-                print('hey')
-                # PSEUDOCODE: new_card.card_steps.append(next step...)
+                step = CardSteps(step_no=step_incr, step_name=field.data)
+                new_card.update(push__card_steps=step)
+                step_incr += 1
 
-        new_card.save()
         return redirect(url_for('new_card_view'))
 
     return render_template('new_card.html', form=form)
+
+
