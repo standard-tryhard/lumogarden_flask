@@ -19,9 +19,9 @@
                 </h4>
                 <div>
                     <ul>
-                        {{ form.chk_tl_L1.label}} {{ form.chk_tl_L1 }}<br>
-                        {{ form.chk_tl_L2.label}} {{ form.chk_tl_L2 }}<br>
-                        {{ form.chk_tl_L3.label}} {{ form.chk_tl_L3 }}<br>
+                        {% for chk in form.tl_form %}
+                        <li>{{ chk.label }} {{ chk }}</li>
+                        {% endfor %}
                     </ul>
 
                 </div>
@@ -36,9 +36,9 @@
                 </h4>
                 <div>
                     <ul>
-                        {{ form.chk_tm_M1.label}} {{ form.chk_tm_M1 }}<br>
-                        {{ form.chk_tm_M2.label}} {{ form.chk_tm_M2 }}<br>
-                        {{ form.chk_tm_M3.label}} {{ form.chk_tm_M3 }}<br>
+                        {% for chk in form.tm_form %}
+                        <li>{{ chk.label }} {{ chk }}</li>
+                        {% endfor %}
                     </ul>
 
                 </div>
@@ -53,9 +53,9 @@
                 </h4>
                 <div>
                     <ul>
-                        {{ form.chk_tr_R1.label}} {{ form.chk_tr_R1 }}<br>
-                        {{ form.chk_tr_R2.label}} {{ form.chk_tr_R2 }}<br>
-                        {{ form.chk_tr_R3.label}} {{ form.chk_tr_R3 }}<br>
+                        {% for chk in form.tr_form %}
+                        <li>{{ chk.label }} {{ chk }}</li>
+                        {% endfor %}
                     </ul>
                 </div>
 
@@ -78,6 +78,9 @@
                 </h4>
                 <div>
                     <ul>
+                        {% for chk in form.ml_form %}
+                        <li>{{ chk.label }} {{ chk }}</li>
+                        {% endfor %}
                     </ul>
 
                 </div>
@@ -102,6 +105,9 @@
                 </h4>
                 <div>
                     <ul>
+                        {% for chk in form.mr_form %}
+                        <li>{{ chk.label }} {{ chk }}</li>
+                        {% endfor %}
                     </ul>
 
                 </div>
@@ -125,6 +131,9 @@
                 </h4>
                 <div>
                     <ul>
+                        {% for chk in form.bl_form %}
+                        <li>{{ chk.label }} {{ chk }}</li>
+                        {% endfor %}
                     </ul>
 
                 </div>
@@ -139,6 +148,9 @@
                 </h4>
                 <div>
                     <ul>
+                        {% for chk in form.ml_form %}
+                        <li>{{ chk.label }} {{ chk }}</li>
+                        {% endfor %}
                     </ul>
 
                 </div>
@@ -153,6 +165,9 @@
                 </h4>
                 <div>
                     <ul>
+                        {% for chk in form.br_form %}
+                        <li>{{ chk.label }} {{ chk }}</li>
+                        {% endfor %}
                     </ul>
 
                 </div>

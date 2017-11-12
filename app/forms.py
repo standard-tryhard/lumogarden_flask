@@ -27,19 +27,6 @@ class NewCardForm(FlaskForm):
     submit = SubmitField('add')
 
 
-# class TelephoneForm(Form):
-#     country_code = IntegerField('Country Code', [validators.required()])
-#     area_code    = IntegerField('Area Code/Exchange', [validators.required()])
-#     number       = StringField('Number')
-#
-# class ContactForm(Form):
-#     first_name   = StringField()
-#     last_name    = StringField()
-#     mobile_phone = FormField(TelephoneForm)
-#     office_phone = FormField(TelephoneForm)
-
-
-
 # There are other ways to do this
 # but I'm hacking it this way for now to
 # focus on application logic
@@ -59,12 +46,39 @@ class TodoButtons(FlaskForm):
     submit = SubmitField('Bloom')
 
 
-# class ExampleForm(FlaskForm):
-#
-#     fields = SelectMultipleField(
-#         'Form',
-#         choices=[],
-#         option_widget=widgets.CheckboxInput(),
-#         widget=widgets.ListWidget(prefix_label=False)
-#         )
+class CheckboxGroup(FlaskForm):
+    chk_one = BooleanField('')
+    chk_two = BooleanField('')
+    chk_thr = BooleanField('')
 
+    class Meta:
+        # This overrides the value from the base form.
+        csrf = False
+
+
+class TodoButtonsImproved(FlaskForm):
+    tl_form = FormField(CheckboxGroup)
+    tm_form = FormField(CheckboxGroup)
+    tr_form = FormField(CheckboxGroup)
+
+    ml_form = FormField(CheckboxGroup)
+    mr_form = FormField(CheckboxGroup)
+
+    bl_form = FormField(CheckboxGroup)
+    bm_form = FormField(CheckboxGroup)
+    br_form = FormField(CheckboxGroup)
+
+    submit = SubmitField('Bloom')
+
+
+
+# class TelephoneForm(Form):
+#     country_code = IntegerField('Country Code', [validators.required()])
+#     area_code    = IntegerField('Area Code/Exchange', [validators.required()])
+#     number       = StringField('Number')
+#
+# class ContactForm(Form):
+#     first_name   = StringField()
+#     last_name    = StringField()
+#     mobile_phone = FormField(TelephoneForm)
+#     office_phone = FormField(TelephoneForm)
