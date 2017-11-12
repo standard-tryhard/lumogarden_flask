@@ -27,25 +27,6 @@ class NewCardForm(FlaskForm):
     submit = SubmitField('add')
 
 
-# There are other ways to do this
-# but I'm hacking it this way for now to
-# focus on application logic
-class TodoButtons(FlaskForm):
-    chk_tl_L1 = BooleanField('')
-    chk_tl_L2 = BooleanField('')
-    chk_tl_L3 = BooleanField('')
-
-    chk_tm_M1 = BooleanField('')
-    chk_tm_M2 = BooleanField('')
-    chk_tm_M3 = BooleanField('')
-
-    chk_tr_R1 = BooleanField('')
-    chk_tr_R2 = BooleanField('')
-    chk_tr_R3 = BooleanField('')
-
-    submit = SubmitField('Bloom')
-
-
 class CheckboxGroup(FlaskForm):
     chk_one = BooleanField('')
     chk_two = BooleanField('')
@@ -71,14 +52,20 @@ class TodoButtonsImproved(FlaskForm):
     submit = SubmitField('Bloom')
 
 
-
-# class TelephoneForm(Form):
-#     country_code = IntegerField('Country Code', [validators.required()])
-#     area_code    = IntegerField('Area Code/Exchange', [validators.required()])
-#     number       = StringField('Number')
+# There are other ways to do this
+# but I'm hacking it this way for now to
+# focus on application logic
+# class TodoButtons(FlaskForm):
+#     chk_tl_L1 = BooleanField('')
+#     chk_tl_L2 = BooleanField('')
+#     chk_tl_L3 = BooleanField('')
 #
-# class ContactForm(Form):
-#     first_name   = StringField()
-#     last_name    = StringField()
-#     mobile_phone = FormField(TelephoneForm)
-#     office_phone = FormField(TelephoneForm)
+#     chk_tm_M1 = BooleanField('')
+#     chk_tm_M2 = BooleanField('')
+#     chk_tm_M3 = BooleanField('')
+#
+#     chk_tr_R1 = BooleanField('')
+#     chk_tr_R2 = BooleanField('')
+#     chk_tr_R3 = BooleanField('')
+#
+#     submit = SubmitField('Bloom')

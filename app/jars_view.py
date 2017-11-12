@@ -47,49 +47,14 @@ def jars_view(jar_from_url):
         'br': br
         }
 
-    # form_data_tl = get_incmplts_tuple(tl)
-    # form_data_tm = get_incmplts_tuple(tm)
-    # form_data_tr = get_incmplts_tuple(tr)
-    # form_data_ml = get_incmplts_tuple(ml)
-    # form_data_tr = get_incmplts_tuple(tr)
-    # form_data_bl = get_incmplts_tuple(bl)
-    # form_data_bm = get_incmplts_tuple(bm)
-    # form_data_br = get_incmplts_tuple(br)
-
-    # for card in jar_positions.values():
-    #     print(card.card_name)
     form = TodoButtonsImproved()
 
-    # def load_chk_data(form, cards)
     for subform, card in zip_longest(form, jar_positions.values()):
         idx = 0
         if subform.type == 'FormField':
             for chk in subform:
                 chk.id, chk.label = get_incmplts_tuple(card)[idx]
                 idx += 1
-
-    # for subform in form.checkforms:
-    #     for todo_chk in subform:
-    #         todo_chk.id, todo_chk.label =
-
-    # (form.chk_tl_L1.id,
-    #  form.chk_tl_L1.label) = form_data_tl[0]
-    #
-    # (form.chk_tl_L2.id,
-    #  form.chk_tl_L2.label) = form_data_tl[1]
-    #
-    # (form.chk_tl_L3.id,
-    #  form.chk_tl_L3.label) = form_data_tl[2]
-    #
-    # (form.chk_tm_M1.id,
-    #  form.chk_tm_M1.label) = form_data_tm[0]
-    #
-    # (form.chk_tm_M2.id,
-    #  form.chk_tm_M2.label) = form_data_tm[1]
-    #
-    # (form.chk_tm_M3.id,
-    #  form.chk_tm_M3.label) = form_data_tm[2]
-
 
     if form.validate_on_submit():
             for field in form:
