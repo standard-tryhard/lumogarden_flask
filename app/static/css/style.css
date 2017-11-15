@@ -4,7 +4,7 @@ body {
 	padding-top: 10px;
 }
 
-.top-header {
+.lumo-header {
 	color:grey;
 	margin-top: 10px;
 	margin-bottom: 5px;
@@ -71,7 +71,7 @@ a:hover {
     font-weight: 200;
 }
 
-#bloom {
+#rebloom {
 
     color: #333;
     position: relative;

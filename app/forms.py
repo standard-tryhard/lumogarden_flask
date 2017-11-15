@@ -37,6 +37,23 @@ class CheckboxGroup(FlaskForm):
         csrf = False
 
 
+class TodoButtons(FlaskForm):
+    chk_tl_L1 = BooleanField('')
+    chk_tl_L2 = BooleanField('')
+    chk_tl_L3 = BooleanField('')
+
+    chk_tm_M1 = BooleanField('')
+    chk_tm_M2 = BooleanField('')
+    chk_tm_M3 = BooleanField('')
+
+    chk_tr_R1 = BooleanField('')
+    chk_tr_R2 = BooleanField('')
+    chk_tr_R3 = BooleanField('')
+
+    submit = SubmitField('Rebloom')
+
+
+
 class TodoButtonsImproved(FlaskForm):
     tl_form = FormField(CheckboxGroup)
     tm_form = FormField(CheckboxGroup)
@@ -49,7 +66,8 @@ class TodoButtonsImproved(FlaskForm):
     bm_form = FormField(CheckboxGroup)
     br_form = FormField(CheckboxGroup)
 
-    submit = SubmitField('Bloom')
+    submit = SubmitField('Rebloom')
+
 
 
 # There are other ways to do this
@@ -68,4 +86,4 @@ class TodoButtonsImproved(FlaskForm):
 #     chk_tr_R2 = BooleanField('')
 #     chk_tr_R3 = BooleanField('')
 #
-#     submit = SubmitField('Bloom')
+#     submit = SubmitField('Rebloom')

@@ -1,10 +1,12 @@
 from flask import render_template, redirect, url_for
 from app import lumo_hub
 from app.block import Block
-from app.card import Card
-from app.card_steps import CardSteps
-from app.data_manipulation import get_incmplts_tuple
-from app.forms import NewCardForm, TodoButtons
+from app.forms import TodoButtons
+
+
+# from app.card import Card
+# from app.card_steps import CardSteps
+# from app.data_manipulation import get_incmplts_tuple
 
 
 @lumo_hub.route('/', methods=['GET', 'POST'])
