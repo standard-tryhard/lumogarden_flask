@@ -61,20 +61,51 @@ a {
     color: black;
 }
 
-.center-link-area {
+
+a:hover {
+ 	color: black;
+ 	font-weight: bold;
+ 	text-decoration: none;
+}
+
+
+.center-link {
     text-align: center;
+}
+
+.center-link li:hover {
+    color: white;
+    text-decoration: underline;
+    font-weight: inherit;
+}
+
+.center-link a:hover {
+    color: white;
+    text-decoration: underline;
+    font-weight: inherit;
 }
 
 .new-card {
     text-align: center;
     line-heigth: 2;
     margin: auto;
-    margin-top: 40px;
+    /*margin-top: 40px;*/
     border-style: solid;
 	border-width: 2px;
 	border-color: black;
 	border-radius: 6px;
 	padding: 25px;
+}
+
+div.new-card-super-border input {
+    border: 2px #7BA8BE solid;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 80%;
+
 }
 
 .new-card input, table {
@@ -85,8 +116,13 @@ a {
     border: 1px solid;
 }
 
-table, tbody, form, td {
+
+table, tbody, form {
     border: none;
+}
+
+td {
+    border-bottom: 1px;
 }
 
 nav li {
@@ -112,11 +148,8 @@ input[type=submit] {
     border-style: none;
     text-align: center
 }
-
-a:hover {
- 	color: black;
- 	font-weight: bold;
- 	text-decoration: none;
+table {
+    margin: auto;
 }
 
 
@@ -125,6 +158,3 @@ a:hover {
 }
 
 
-table {
-    margin: auto;
-}
