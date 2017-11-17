@@ -1,9 +1,8 @@
-from itertools import zip_longest
 
 from flask import render_template, redirect, url_for
 from app import lumo_hub
 from app.card import Card
-from app.forms import TodoButtons, ShowMultipleChkbxForm
+from app.forms import ShowMultipleChkbxForm, EditCardForm
 
 template_card = Card.objects(card_name='...').get()
 
@@ -18,13 +17,16 @@ def show_existing_steps(searched_card):
     else:
         found_card = template_card
 
-    steps_for_form = [(s.step_name, s.step_name) for s in found_card.card_steps]
+    existing_steps = [(s.step_name, s.step_name) for s in found_card.card_steps]
     bools = [s.step_status for s in found_card.card_steps]
 
-    form = ShowMultipleChkbxForm()
-    form.chk.choices = steps_for_form
+    existing_steps_form = ShowMultipleChkbxForm()
+    existing_steps_form.chks.choices = existing_steps
+
+    added_steps_form = EditCardForm()
 
 
     return render_template('dummy_page.html',
                            found_card=found_card,
-                           form=form)
+                           existing_steps_form=existing_steps_form,
+                           added_steps_form=added_steps_form)

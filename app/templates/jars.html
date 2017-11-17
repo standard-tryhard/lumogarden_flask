@@ -3,19 +3,23 @@
 
 
 <h3 class="lumo-header">
-        <a id="header_link" href="{{ url_for('blocks_view') }}">LUMOGARDEN: {{jar_name}}</a>
+    <a id="header_link" href="{{ url_for('blocks_view') }}">lumogarden:
+        {{jar_name}}</a>
     </h3>
 
 
     <form method="POST">
         {{ form.hidden_tag() }}
 
-    <div class="row">
+        <div class="row">
 
         <div class="col-xs-4">
             <div class="well">
-                <h4 class="category-header">
-                    {{ jar_positions['tl'].card_name }}
+                <h4 class="blocks-jars-view-sm-title">
+                    <a href="{{ url_for('card_view',
+                            card_from_url=jar_positions['tl'].card_name) }}">
+                        {{ jar_positions['tl'].card_name }}
+                    </a>
                 </h4>
                 <div>
                     <ul>
@@ -31,8 +35,11 @@
 
         <div class="col-xs-4">
             <div class="well">
-                <h4 class="category-header">
-                    {{ jar_positions['tm'].card_name }}
+                <h4 class="blocks-jars-view-sm-title">
+                    <a href="{{ url_for('card_view',
+                            card_from_url=jar_positions['tm'].card_name) }}">
+                        {{ jar_positions['tm'].card_name }}
+                    </a>
                 </h4>
                 <div>
                     <ul>
@@ -48,8 +55,11 @@
 
         <div class="col-xs-4">
             <div class="well">
-                <h4 class="category-header">
-                    {{ jar_positions['tr'].card_name }}
+                <h4 class="blocks-jars-view-sm-title">
+                    <a href="{{ url_for('card_view',
+                            card_from_url=jar_positions['tr'].card_name) }}">
+                        {{ jar_positions['tr'].card_name }}
+                    </a>
                 </h4>
                 <div>
                     <ul>
@@ -73,8 +83,11 @@
 
         <div class="col-xs-4">
             <div class="well">
-                <h4 class="category-header">
-                    {{ jar_positions['ml'].card_name }}
+                <h4 class="blocks-jars-view-sm-title">
+                    <a href="{{ url_for('card_view',
+                            card_from_url=jar_positions['ml'].card_name) }}">
+                        {{ jar_positions['ml'].card_name }}
+                    </a>
                 </h4>
                 <div>
                     <ul>
@@ -90,7 +103,7 @@
 
         <div class="col-xs-4">
             <div class="well">
-                <h4 class="category-header">
+                <h4 class="blocks-jars-view-sm-title">
                 </h4>
                 <div id="rebloom">
                     {{ form.submit }}
@@ -100,8 +113,11 @@
 
         <div class="col-xs-4">
             <div class="well">
-                <h4 class="category-header">
-                    {{ jar_positions['mr'].card_name }}
+                <h4 class="blocks-jars-view-sm-title">
+                    <a href="{{ url_for('card_view',
+                            card_from_url=jar_positions['mr'].card_name) }}">
+                        {{ jar_positions['mr'].card_name }}
+                    </a>
                 </h4>
                 <div>
                     <ul>
@@ -126,8 +142,11 @@
 
         <div class="col-xs-4">
             <div class="well">
-                <h4 class="category-header">
-                    {{ jar_positions['bl'].card_name }}
+                <h4 class="blocks-jars-view-sm-title">
+                    <a href="{{ url_for('card_view',
+                            card_from_url=jar_positions['bl'].card_name) }}">
+                        {{ jar_positions['bl'].card_name }}
+                    </a>
                 </h4>
                 <div>
                     <ul>
@@ -143,8 +162,11 @@
 
         <div class="col-xs-4">
             <div class="well">
-                <h4 class="category-header">
-                    {{ jar_positions['bm'].card_name }}
+                <h4 class="blocks-jars-view-sm-title">
+                    <a href="{{ url_for('card_view',
+                            card_from_url=jar_positions['bm'].card_name) }}">
+                        {{ jar_positions['bm'].card_name }}
+                    </a>
                 </h4>
                 <div>
                     <ul>
@@ -160,8 +182,11 @@
 
         <div class="col-xs-4">
             <div class="well">
-                <h4 class="category-header">
-                    {{ jar_positions['br'].card_name }}
+                <h4 class="blocks-jars-view-sm-title">
+                    <a href="{{ url_for('card_view',
+                            card_from_url=jar_positions['br'].card_name) }}">
+                        {{ jar_positions['br'].card_name }}
+                    </a>
                 </h4>
                 <div>
                     <ul>

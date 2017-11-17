@@ -1,21 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h4>The Dummy Page!</h4>
-<p><b>you searched for: </b>{{ found_card.card_name }} </p>
-<p>
-    <!--{% for step in found_card.card_steps %}-->
-    <!--{{ step.step_name }}<br>-->
-    <!--{% endfor %}-->
 
-    {{ form.submit }}
-    {{ form.chk }}
-    {% for d in form.chk %}
-    {{ d.checked }}
-    {% endfor %}
+<h3 class="lumo-header">lumogarden: edit card</h3>
+
+<div class="col-xs-12 new-card">
+    <form method="POST">
+
+        <div class="new-card-super-border">
+
+            {% for field in existing_steps_form %}
+            {{ field.type }}<br>
+            {% endfor %}
 
 
-</p>
+        </div> <!-- new-card-super-border -->
+
+        <br>
+        <br>
+
+
+    </form>
+</div> <!-- col-cs-12 -->
+
 
 {% endblock %}
 

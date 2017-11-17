@@ -1,28 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="lumo-header">LUMOGARDEN: NEW CARD</h3>
+<h3 class="lumo-header">lumogarden: new card</h3>
 
 <div class="col-xs-12 new-card">
 
     <form method="POST">
         {{ form.hidden_tag() }}
-        <div class="new-card-super-border"
-        ">
-        {{ form.new_card_name(class_="", placeholder="New card: ") }}
-            {% for error in form.new_card_name.errors %}[{{ error }}]{% endfor
-            %}
+        <div class="new-card-super-border">
+
+            {{ form.new_card_name(placeholder="New card: ") }}
+
+            {% for error in form.new_card_name.errors %}[
+            {{ error }}]
+            {% endfor %}
 
             {{ form.new_card_jar(placeholder="What category: ") }}
             {% for error in form.new_card_jar.errors %}[{{ error }}]{% endfor %}
-</div>
 
-            <br>
-            <br>
+        </div>
 
-            {{ form.new_card_steps }}
+        <br>
+        <br>
 
-            {{ form.submit }}
+        {{ form.new_card_steps }}
+
+        {{ form.submit }}
 
     </form>
 

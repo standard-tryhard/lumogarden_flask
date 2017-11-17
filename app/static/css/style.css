@@ -10,7 +10,27 @@ body {
 	margin-bottom: 5px;
 	font-size: 22px;
 	font-weight: lighter;
+	text-transform: uppercase;
 }
+
+
+.blocks-jars-view-sm-title {
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0px;
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+
+
+.card-view-lg-title {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 
 .container {
 	max-width:725px;
@@ -21,15 +41,6 @@ body {
     padding-left: 6px;
 	padding-right: 6px;
 }
-
-.category-header {
-	text-align: center;
-	text-transform: uppercase;
-	margin: 0px;
-	margin-top: 12px;
-	margin-bottom: 12px;
-}
-
 
 .well {
     background: inherit;
@@ -85,9 +96,17 @@ a:hover {
     font-weight: inherit;
 }
 
+.card-view {
+    line-height: 2;
+    border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	border-radius: 6px;
+}
+
 .new-card {
     text-align: center;
-    line-heigth: 2;
+    line-height: 2;
     margin: auto;
     /*margin-top: 40px;*/
     border-style: solid;

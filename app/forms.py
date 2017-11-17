@@ -26,7 +26,23 @@ class NewCardForm(FlaskForm):
     new_card_jar = StringField('new_card_jar', validators=[DataRequired()])
     new_card_steps = FormField(NewCardStepsForm)
 
-    submit = SubmitField('add')
+    submit = SubmitField('create card')
+
+
+class EditCardStepsForm(FlaskForm):
+    new_card_step_A = StringField('')
+    new_card_step_B = StringField('')
+    new_card_step_C = StringField('')
+    new_card_step_D = StringField('')
+    new_card_step_E = StringField('')
+
+
+class EditCardForm(FlaskForm):
+    edit_card_name = StringField('edit_card_name',
+                                 validators=[DataRequired()])
+    additional_steps = FormField(EditCardStepsForm)
+
+    submit = SubmitField('add steps')
 
 
 class CheckboxGroup(FlaskForm):
@@ -76,8 +92,35 @@ class MultiCheckboxField(SelectMultipleField):
 
 
 class ShowMultipleChkbxForm(FlaskForm):
-    chk = MultiCheckboxField('Label', choices=[])
+    chks = MultiCheckboxField('Label', choices=[])
     submit = SubmitField()
 
-    def __init__(self):
-        super(ShowMultipleChkbxForm).__init__()
+
+'''
+class ChoiceObj(object):
+    def __init__(self, name, choices):
+        # this is needed so that BaseForm.process will accept the object for the named form,
+        # and eventually it will end up in SelectMultipleField.process_data and get assigned
+        # to .data
+        setattr(self, name, choices)
+
+class MultiCheckboxField(SelectMultipleField):
+    widget = widgets.TableWidget()
+    option_widget = widgets.CheckboxInput()
+
+    # uncomment to see how the process call passes through this object
+    # def process_data(self, value):
+    #     return super(MultiCheckboxField, self).process_data(value)
+
+class ColorLookupForm(Form):
+    submit = SubmitField('Save')
+    colors = MultiCheckboxField(None)
+
+allColors = ( 'red', 'pink', 'blue', 'green', 'yellow', 'purple' )
+
+@app.route('/', methods=['GET', 'POST'])
+def color():
+    selectedChoices = ChoiceObj('colors', session.get('selected') )
+    form = ColorLookupForm(obj=selectedChoices)
+    form.colors.choices =  [(c, c) for c in allColors]
+'''
