@@ -1,11 +1,13 @@
 from flask_wtf import FlaskForm
 from wtforms import (StringField, FormField,
-                     SubmitField, BooleanField)
+                     SubmitField, BooleanField,
+                     SelectMultipleField, widgets)
+
 from wtforms.validators import DataRequired
 
 
 class NewCardStepsForm(FlaskForm):
-    new_card_step_A = StringField('')
+    new_card_step_A = StringField(' ')
     new_card_step_B = StringField('')
     new_card_step_C = StringField('')
     new_card_step_D = StringField('')
@@ -53,7 +55,6 @@ class TodoButtons(FlaskForm):
     submit = SubmitField('Rebloom')
 
 
-
 class TodoButtonsImproved(FlaskForm):
     tl_form = FormField(CheckboxGroup)
     tm_form = FormField(CheckboxGroup)
@@ -69,21 +70,14 @@ class TodoButtonsImproved(FlaskForm):
     submit = SubmitField('Rebloom')
 
 
+class MultiCheckboxField(SelectMultipleField):
+    widget = widgets.ListWidget(prefix_label=True)
+    option_widget = widgets.CheckboxInput()
 
-# There are other ways to do this
-# but I'm hacking it this way for now to
-# focus on application logic
-# class TodoButtons(FlaskForm):
-#     chk_tl_L1 = BooleanField('')
-#     chk_tl_L2 = BooleanField('')
-#     chk_tl_L3 = BooleanField('')
-#
-#     chk_tm_M1 = BooleanField('')
-#     chk_tm_M2 = BooleanField('')
-#     chk_tm_M3 = BooleanField('')
-#
-#     chk_tr_R1 = BooleanField('')
-#     chk_tr_R2 = BooleanField('')
-#     chk_tr_R3 = BooleanField('')
-#
-#     submit = SubmitField('Rebloom')
+
+class ShowMultipleChkbxForm(FlaskForm):
+    chk = MultiCheckboxField('Label', choices=[])
+    submit = SubmitField()
+
+    def __init__(self):
+        super(ShowMultipleChkbxForm).__init__()

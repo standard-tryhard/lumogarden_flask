@@ -1,6 +1,6 @@
 body {
 	background-color: #fff;
-	background-color: #666; /* temp override for easier screen reading */
+	/*background-color: #666; /* temp override for easier screen reading */
 	padding-top: 10px;
 }
 
@@ -32,8 +32,8 @@ body {
 
 
 .well {
-	background-color: #fff;
-	background-color: #666; /* temp override for easier screen reading */
+    background: inherit;
+	/* background-color: #666; /* temp override for easier screen reading */
 	border-style: solid;
 	border-width: 2px;
 	border-color: black;
@@ -61,22 +61,70 @@ a {
     color: black;
 }
 
+.center-link-area {
+    text-align: center;
+}
+
+.new-card {
+    text-align: center;
+    line-heigth: 2;
+    margin: auto;
+    margin-top: 40px;
+    border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	border-radius: 6px;
+	padding: 25px;
+}
+
+.new-card input, table {
+    width: 100%;
+    margin: 3px;
+    border-collapse: inherit;
+    border-radius: 2px;
+    border: 1px solid;
+}
+
+table, tbody, form, td {
+    border: none;
+}
+
+nav li {
+    background-color: black;
+    border-style: none;
+    text-align: center;
+    margin: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+nav a {
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+
+input[type=submit] {
+    background-color: black;
+    color: white;
+    border-style: none;
+    text-align: center
+}
+
 a:hover {
  	color: black;
  	font-weight: bold;
  	text-decoration: none;
 }
 
+
 #header_link:hover {
     font-weight: 200;
 }
 
-#rebloom {
 
-    color: #333;
-    position: relative;
-    top: 50%;
-    text-align: center;
-    padding: 0;
+table {
+    margin: auto;
 }
-
