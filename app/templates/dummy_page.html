@@ -4,9 +4,17 @@
 <h4>The Dummy Page!</h4>
 <p><b>you searched for: </b>{{ found_card.card_name }} </p>
 <p>
-    {% for step in found_card.card_steps %}
-    {{ step.step_name }}<br>
+    <!--{% for step in found_card.card_steps %}-->
+    <!--{{ step.step_name }}<br>-->
+    <!--{% endfor %}-->
+
+    {{ form.submit }}
+    {{ form.chk }}
+    {% for d in form.chk %}
+    {{ d.checked }}
     {% endfor %}
+
+
 </p>
 
 {% endblock %}

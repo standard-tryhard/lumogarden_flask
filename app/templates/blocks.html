@@ -96,10 +96,24 @@
 			<div class="well">
                 <h4 class="category-header">
 				</h4>
-				<div id="rebloom">
-                    {{ form.submit }}<br>
-                    <a href="{{ url_for('new_card_view') }}">New Card</a>
-				</div>
+                <nav class="center-link">
+                    <ul>
+
+                        <li>
+                            {{ form.submit }}
+                        </li>
+
+                        <li>
+                            <a href="{{ url_for('new_card_view') }}">New
+                                Card</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Edit Card</a>
+                        </li>
+
+                    </ul>
+                </nav>
 
 			</div> <!-- well -->
 		</div> <!-- col -->
