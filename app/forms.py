@@ -45,14 +45,6 @@ class EditCardForm(FlaskForm):
     submit = SubmitField('add steps')
 
 
-class CheckboxGroup(FlaskForm):
-    chk_one = BooleanField('')
-    chk_two = BooleanField('')
-    chk_thr = BooleanField('')
-
-    class Meta:
-        # This overrides the value from the base form.
-        csrf = False
 
 
 class TodoButtons(FlaskForm):
@@ -69,6 +61,16 @@ class TodoButtons(FlaskForm):
     chk_tr_R3 = BooleanField('')
 
     submit = SubmitField('Rebloom')
+
+
+class CheckboxGroup(FlaskForm):
+    chk_one = BooleanField('')
+    chk_two = BooleanField('')
+    chk_thr = BooleanField('')
+
+    class Meta:
+        # This overrides the value from the base form.
+        csrf = False
 
 
 class TodoButtonsImproved(FlaskForm):

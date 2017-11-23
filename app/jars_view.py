@@ -57,10 +57,12 @@ def jars_view(jar_from_url):
                 idx += 1
 
     if form.validate_on_submit():
-            for field in form:
-                if field.type == 'BooleanField' and field.data:
-                    c = field.name[4:6]; card = jar_positions[c]
-                    n = field.id
+        subforms = [f for f in form if f.type == "FormField"]
+        for s_f in subforms:
+            for chk in s_f:
+                if chk.data:
+                    card = jar_positions[s_f.name[:2]]
+                    n = chk.id
                     card.card_steps[n].step_status = 1
             card.save()
 
