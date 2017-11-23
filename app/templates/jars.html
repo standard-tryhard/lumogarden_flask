@@ -11,7 +11,7 @@
     <form method="POST">
         {{ form.hidden_tag() }}
 
-        <div class="row">
+        <div cldass="row">
 
         <div class="col-xs-4">
             <div class="well">
@@ -170,7 +170,7 @@
                 </h4>
                 <div>
                     <ul>
-                        {% for chk in form.ml_form %}
+                        {% for chk in form.bm_form %}
                         <li>{{ chk.label }} {{ chk }}</li>
                         {% endfor %}
                     </ul>
