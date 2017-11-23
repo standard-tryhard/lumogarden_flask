@@ -23,11 +23,21 @@ def show_existing_steps(searched_card):
     existing_steps_form = ShowMultipleChkbxForm()
     existing_steps_form.chks.choices = existing_steps
 
-    added_steps_form = EditCardForm()
+    # added_steps_form = EditCardForm()
 
+    if existing_steps_form.validate_on_submit():
+        for chk in existing_steps_form.chks:
+            n = int(chk.id[-1])
+            if chk.checked:
+                found_card.card_steps[n].step_status = 1
+            else:
+                found_card.card_steps[n].step_status = 0
+
+        found_card.save()
+        return redirect(url_for('show_existing_steps',
+                                searched_card=searched_card))
 
     return render_template('dummy_page.html',
                            found_card=found_card,
                            existing_steps_form=existing_steps_form,
-                           added_steps_form=added_steps_form,
                            bools=bools)

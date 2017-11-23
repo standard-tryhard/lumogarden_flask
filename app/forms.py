@@ -93,4 +93,4 @@ class MultiCheckboxField(SelectMultipleField):
 
 class ShowMultipleChkbxForm(FlaskForm):
     chks = MultiCheckboxField('Label', choices=[])
-    submit = SubmitField()
+    submit = SubmitField('rebloom')

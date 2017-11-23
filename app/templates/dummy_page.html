@@ -6,6 +6,7 @@
 
 <div class="col-xs-12 card-view">
     <form method="POST">
+        {{ existing_steps_form.hidden_tag() }}
 
         <div class="new-card-super-border">
 
@@ -27,10 +28,10 @@
 
             {% endfor %}
 
-            {{ existing_steps_form.submit }}
 
         </div> <!-- new-card-super-border -->
 
+        {{ existing_steps_form.submit }}
 
     </form>
 </div> <!-- col-cs-12 -->
