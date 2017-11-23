@@ -29,4 +29,5 @@ def show_existing_steps(searched_card):
     return render_template('dummy_page.html',
                            found_card=found_card,
                            existing_steps_form=existing_steps_form,
-                           added_steps_form=added_steps_form)
+                           added_steps_form=added_steps_form,
+                           bools=bools)

@@ -96,6 +96,7 @@ a:hover {
     font-weight: inherit;
 }
 
+
 .card-view {
     line-height: 2;
     border-style: solid;
@@ -103,6 +104,7 @@ a:hover {
 	border-color: black;
 	border-radius: 6px;
 }
+
 
 .new-card {
     text-align: center;
@@ -127,6 +129,7 @@ div.new-card-super-border input {
 
 }
 
+
 .new-card input, table {
     width: 100%;
     margin: 3px;
@@ -140,9 +143,11 @@ table, tbody, form {
     border: none;
 }
 
+
 td {
     border-bottom: 1px;
 }
+
 
 nav li {
     background-color: black;
@@ -153,12 +158,12 @@ nav li {
     padding-bottom: 8px;
 }
 
+
 nav a {
     color: white;
     padding-top: 10px;
     padding-bottom: 10px;
 }
-
 
 
 input[type=submit] {

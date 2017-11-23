@@ -4,20 +4,32 @@
 
 <h3 class="lumo-header">lumogarden: edit card</h3>
 
-<div class="col-xs-12 new-card">
+<div class="col-xs-12 card-view">
     <form method="POST">
 
         <div class="new-card-super-border">
 
-            {% for field in existing_steps_form %}
-            {{ field.type }}<br>
+            {% for chk in existing_steps_form.chks %}
+            {{ chk.label }} {{ chk }}<br>
+
+            <script>
+                    var octo = "#";
+                    var idChk = "{{chk.id}}";
+                    var fullChkId = octo.concat(idChk);
+                    var mongo_intBool = {{ bools[loop.index-1] }}
+
+                    if (mongo_intBool == 1) {
+                        console.log(mongo_intBool)
+                        $(fullChkId).prop("checked", true);
+                    }
+
+            </script>
+
             {% endfor %}
 
+            {{ existing_steps_form.submit }}
 
         </div> <!-- new-card-super-border -->
-
-        <br>
-        <br>
 
 
     </form>

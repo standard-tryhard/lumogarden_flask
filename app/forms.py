@@ -94,33 +94,3 @@ class MultiCheckboxField(SelectMultipleField):
 class ShowMultipleChkbxForm(FlaskForm):
     chks = MultiCheckboxField('Label', choices=[])
     submit = SubmitField()
-
-
-'''
-class ChoiceObj(object):
-    def __init__(self, name, choices):
-        # this is needed so that BaseForm.process will accept the object for the named form,
-        # and eventually it will end up in SelectMultipleField.process_data and get assigned
-        # to .data
-        setattr(self, name, choices)
-
-class MultiCheckboxField(SelectMultipleField):
-    widget = widgets.TableWidget()
-    option_widget = widgets.CheckboxInput()
-
-    # uncomment to see how the process call passes through this object
-    # def process_data(self, value):
-    #     return super(MultiCheckboxField, self).process_data(value)
-
-class ColorLookupForm(Form):
-    submit = SubmitField('Save')
-    colors = MultiCheckboxField(None)
-
-allColors = ( 'red', 'pink', 'blue', 'green', 'yellow', 'purple' )
-
-@app.route('/', methods=['GET', 'POST'])
-def color():
-    selectedChoices = ChoiceObj('colors', session.get('selected') )
-    form = ColorLookupForm(obj=selectedChoices)
-    form.colors.choices =  [(c, c) for c in allColors]
-'''
