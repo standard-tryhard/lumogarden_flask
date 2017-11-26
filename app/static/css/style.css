@@ -28,7 +28,7 @@ body {
 	text-transform: uppercase;
 	font-size: 30px;
 	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 
 
@@ -72,6 +72,45 @@ a {
     color: black;
 }
 
+table, tbody, form {
+    border: none;
+}
+
+
+td {
+    border-bottom: 1px;
+}
+
+
+nav li {
+    background-color: black;
+    border-style: none;
+    text-align: center;
+    margin: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+
+nav a {
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+input[type=submit] {
+    background-color: black;
+    color: white;
+    border-style: none;
+    text-align: center
+}
+
+
+table {
+    margin: auto;
+}
+
 
 a:hover {
  	color: black;
@@ -99,6 +138,7 @@ a:hover {
 
 .card-view {
     line-height: 2;
+    padding-bottom: 35px;
     border-style: solid;
 	border-width: 2px;
 	border-color: black;
@@ -139,46 +179,23 @@ div.new-card-super-border input {
 }
 
 
-table, tbody, form {
-    border: none;
+.singl_card_step_no {
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+
 }
 
 
-td {
-    border-bottom: 1px;
-}
-
-
-nav li {
-    background-color: black;
-    border-style: none;
-    text-align: center;
-    margin: auto;
-    padding-top: 8px;
-    padding-bottom: 8px;
-}
-
-
-nav a {
-    color: white;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-
-input[type=submit] {
-    background-color: black;
-    color: white;
-    border-style: none;
-    text-align: center
-}
-table {
-    margin: auto;
+.mega {
+    /*float: right;*/
 }
 
 
 #header_link:hover {
     font-weight: 200;
 }
+
+
 
 

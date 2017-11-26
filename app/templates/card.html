@@ -14,11 +14,17 @@
         {{ card_name }}
     </h4>
 
-    <p>
         {% for nmd_tupl in existing_steps %}
-        {{ nmd_tupl.step_no }} {{ nmd_tupl.step_name }}<br>
-        {% endfor %}
-    </p>
+
+    <div class="col-xs-10">
+        <span class="singl_card_step_no">step no: {{ nmd_tupl.step_no }}</span>
+        {{ nmd_tupl.step_name }}<br>
+    </div>
+    <div class="mega">
+        <input type="checkbox">
+    </div>
+
+    {% endfor %}
 
 </div>
 
