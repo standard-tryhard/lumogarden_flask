@@ -11,7 +11,13 @@
         <div class="solo-card-view-container">
 
             {% for chk in existing_steps_form.chks %}
-            {{ chk.label }} {{ chk }}<br>
+            <div class="col-xs-10">
+                {{ chk.label }}
+            </div>
+
+            <div class="col-xs-2">
+                {{ chk }}
+            </div>
 
             <script>
                     var octo = "#";
@@ -24,17 +30,18 @@
                         $(fullChkId).prop("checked", true);
                     }
 
+
             </script>
 
             {% endfor %}
-
 
         </div> <!-- solo-card-view-container -->
 
         {{ existing_steps_form.submit }}
 
     </form>
-</div> <!-- col-cs-12 -->
+
+</div> <!-- col-xs-12 -->
 
 
 {% endblock %}

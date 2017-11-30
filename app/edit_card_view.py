@@ -1,4 +1,3 @@
-
 from flask import render_template, redirect, url_for
 from app import lumo_hub
 from app.card import Card
@@ -7,8 +6,8 @@ from app.forms import ShowMultipleChkbxForm
 template_card = Card.objects(card_name='...').get()
 
 
-@lumo_hub.route('/dummy/<string:searched_card>/', methods=['GET', 'POST'])
-def show_existing_steps(searched_card):
+@lumo_hub.route('/edit_card/<string:searched_card>/', methods=['GET', 'POST'])
+def edit_card_view(searched_card):
     searched_card = searched_card.capitalize()
 
     if Card.objects(card_name=searched_card):
@@ -23,12 +22,6 @@ def show_existing_steps(searched_card):
     existing_steps_form = ShowMultipleChkbxForm()
     existing_steps_form.chks.choices = existing_steps
 
-    print()
-    print()
-    print(existing_steps_form.__dict__['_fields']['chks'])
-    print()
-    print()
-
     # added_steps_form = EditCardForm()
 
     if existing_steps_form.validate_on_submit():
@@ -40,10 +33,10 @@ def show_existing_steps(searched_card):
                 found_card.card_steps[n].step_status = 0
 
         found_card.save()
-        return redirect(url_for('show_existing_steps',
+        return redirect(url_for('edit_card_view',
                                 searched_card=searched_card))
 
-    return render_template('dummy_page.html',
+    return render_template('edit_card.html',
                            found_card=found_card,
                            existing_steps_form=existing_steps_form,
                            bools=bools)
