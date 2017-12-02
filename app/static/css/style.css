@@ -137,12 +137,15 @@ a:hover {
 
 
 .card-view {
-    line-height: 2;
+    min-width: 585px;
+    padding-top: 10px;
     padding-bottom: 35px;
     border-style: solid;
 	border-width: 2px;
 	border-color: black;
 	border-radius: 6px;
+    line-height: 2;
+
 }
 
 
@@ -156,6 +159,8 @@ a:hover {
 	border-radius: 6px;
 	padding: 25px;
 }
+
+
 
 div.solo-card-view-container input {
     border: 2px #7BA8BE solid;
@@ -196,16 +201,35 @@ div.solo-card-view-container input {
 
 }
 
+.col-xs-3 {
+    padding : 10px;
+}
 
-.mega {
-    /*float: right;*/
+
+.icon-view {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    padding-top: 30px;
+    line-height: 1.3;
+}
+
+.baby-card-name {
+    padding-top: 20px;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+
+.full-width-submitter input {
+    width: 100%;
+    margin: 3px;
+    border: 1px solid;
+    border-radius: 4px;
 }
 
 
 #header_link:hover {
     font-weight: 200;
 }
-
-
-
-
