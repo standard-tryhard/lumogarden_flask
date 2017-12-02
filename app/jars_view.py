@@ -1,14 +1,11 @@
 from flask import render_template, redirect, url_for
 from app import lumo_hub
-from app.block import Block
 from app.card import Card
-from app.card_steps import CardSteps
 from app.data_manipulation import get_incmplts_tuple
-from app.forms import NewCardForm, TodoButtons, TodoButtonsImproved
+from app.forms import TodoButtonsImproved
 from itertools import zip_longest
 
 template_card = Card.objects(card_name='...').get()
-
 
 @lumo_hub.route('/jars/<string:jar_from_url>/', methods=['GET', 'POST'])
 def jars_view(jar_from_url):
@@ -25,7 +22,7 @@ def jars_view(jar_from_url):
         else:
             return template_card
 
-    jar_name = jar_from_url.upper()
+    jar_name = jar_from_url
 
     tl = get_jar_positions('top_left')
     tm = get_jar_positions('top_mid')

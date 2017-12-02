@@ -108,8 +108,18 @@
                 <h4 class="blocks-jars-view-sm-title"></h4>
                 <nav class="center-link">
                     <ul>
-                        <li>{{ form.submit }}</li>
-                        <li><a href="#">edit active cards</a></li>
+
+                        <li>
+                            {{ form.submit }}
+                        </li>
+
+                        <li>
+                            <a href="{{ url_for('set_actives_view',
+                                    jar_from_url=jar_name) }}">
+                                edit active cards
+                            </a>
+                        </li>
+
                     </ul>
                 </nav>
 
