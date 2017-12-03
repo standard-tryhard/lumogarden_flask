@@ -28,14 +28,17 @@ def set_actives_view(jar_from_url):
     actives_form.chks.choices = choices
 
     if actives_form.validate_on_submit():
-        # unset all cards in jar to be inactive
-        # reset according zip_longest
+        Card.objects(card_in_jar=jar_from_url).update(
+            set__card_active='inactive')
+
 
         active_chks = [chk for chk in actives_form.chks if chk.checked]
         for chk, p in zip_longest(active_chks, positions_ref):
-            print(chk.data, p)
+            if chk:
+                Card.objects(card_name=chk.data,
+                             card_in_jar=jar_from_url).update_one(
+                    set__card_active=p)
 
-        # found_card.save()
         return redirect(url_for('jars_view', jar_from_url=jar_from_url))
 
     return render_template('set_actives.html',
