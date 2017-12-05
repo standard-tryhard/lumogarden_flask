@@ -7,7 +7,7 @@ from wtforms.validators import DataRequired
 
 
 class NewCardStepsForm(FlaskForm):
-    new_card_step_A = StringField(' ')
+    new_card_step_A = StringField('')
     new_card_step_B = StringField('')
     new_card_step_C = StringField('')
     new_card_step_D = StringField('')
@@ -29,6 +29,14 @@ class NewCardForm(FlaskForm):
     submit = SubmitField('create card')
 
 
+class AddStepsForm(FlaskForm):
+    edit_card_name = StringField('edit_card_name')
+    edit_card_jar = StringField('edit_card_jar')
+    added_steps = FormField(NewCardStepsForm)
+
+    submit = SubmitField('complete edit')
+
+
 class EditCardStepsForm(FlaskForm):
     new_card_step_A = StringField('')
     new_card_step_B = StringField('')
@@ -43,8 +51,6 @@ class EditCardForm(FlaskForm):
     additional_steps = FormField(EditCardStepsForm)
 
     submit = SubmitField('add steps')
-
-
 
 
 class TodoButtons(FlaskForm):

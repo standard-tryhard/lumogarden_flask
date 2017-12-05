@@ -3,31 +3,37 @@
 
 <h3 class="lumo-header">lumogarden: new card</h3>
 
-<div class="col-xs-12 new-card">
+<div class="col-xs-12 card-view">
+    <div class="new-card-steps">
+
 
     <form method="POST">
-        {{ form.hidden_tag() }}
-        <div class="solo-card-view-container">
+        {{ new_card_form.hidden_tag() }}
+        <div class="new-card-name">
 
-            {{ form.new_card_name(placeholder="New card: ") }}
+            {{ new_card_form.new_card_name(placeholder="New card: ") }}
 
-            {% for error in form.new_card_name.errors %}[
+            {% for error in new_card_form.new_card_name.errors %}[
             {{ error }}]
             {% endfor %}
 
-            {{ form.new_card_jar(placeholder="What category: ") }}
-            {% for error in form.new_card_jar.errors %}[{{ error }}]{% endfor %}
+            {{ new_card_form.new_card_jar(placeholder="What category: ") }}
+            {% for error in new_card_form.new_card_jar.errors %}[{{ error }}]{% endfor %}
 
         </div>
 
         <br>
         <br>
 
-        {{ form.new_card_steps }}
+        {{ new_card_form.new_card_steps }}
 
-        {{ form.submit }}
+        <div class="full-width-link">
+            {{ new_card_form.submit }}
+        </div>
 
     </form>
+
+    </div>
 
 </div>
 

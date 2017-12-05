@@ -1,7 +1,7 @@
 from collections import namedtuple
 from flask import render_template, redirect, url_for
 from app import lumo_hub
-from app.card import Card
+from app.card_model import Card
 from app.forms import ShowMultipleChkbxForm
 
 template_card = Card.objects(card_name='...').get()

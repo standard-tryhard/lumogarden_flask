@@ -45,10 +45,17 @@
         {% endfor %}
 
 
-        <div class="full-width-submitter">
+        <div class="full-width-link">
             {{ existing_steps_form.submit }}
         </div>
 
+        <div class="full-width-link">
+
+            <a class="full-width-link" href="{{ url_for('edit_card_view', searched_card=card_name) }}">
+                add steps
+            </a>
+
+        </div>
     </form>
 
 </div>

@@ -1,26 +1,28 @@
 from flask import render_template, redirect, url_for
 from app import lumo_hub
-from app.card import Card
-from app.card_steps import CardSteps
+from app.card_model import Card, CardSteps
 from app.forms import NewCardForm
 
-
-# I'd like to put in some kind of save message or something...
-# ...or... like a display new_card field...
 
 @lumo_hub.route('/new_card/', methods=['GET', 'POST'])
 def new_card_view():
 
-    form = NewCardForm()
+    new_card_form = NewCardForm()
 
-    if form.validate_on_submit():
+    for card in Card.objects():
+        card.card_name = card.card_name.title()
+        card.save()
 
-        new_card = Card(card_name=form.new_card_name.data,
-                        card_in_jar=form.new_card_jar.data)
+    if new_card_form.validate_on_submit():
+
+        new_card_name = new_card_form.new_card_name.data.title()
+        new_card = Card(card_name=new_card_name,
+                        card_in_jar=new_card_form.new_card_jar.data)
 
         new_card.save()
+
         step_incr = 0
-        for field in form.new_card_steps:
+        for field in new_card_form.new_card_steps:
             if field.data and field.type == 'StringField':
                 step = CardSteps(step_no=step_incr, step_name=field.data)
                 new_card.update(push__card_steps=step)
@@ -28,6 +30,6 @@ def new_card_view():
 
         return redirect(url_for('new_card_view'))
 
-    return render_template('new_card.html', form=form)
+    return render_template('new_card.html', new_card_form=new_card_form)
 
 

@@ -8,7 +8,7 @@
     <form method="POST">
         {{ existing_steps_form.hidden_tag() }}
 
-        <div class="solo-card-view-container">
+        <div class="new-card-name">
 
             {% for chk in existing_steps_form.chks %}
             {{ chk.label }} {{ chk }}<br>
@@ -29,7 +29,7 @@
             {% endfor %}
 
 
-        </div> <!-- solo-card-view-container -->
+        </div> <!-- new-card-name -->
 
         {{ existing_steps_form.submit }}
 

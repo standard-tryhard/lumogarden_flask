@@ -5,7 +5,7 @@
 <h3 class="lumo-header">lumogarden: blocks</h3>
 
     <form method="POST">
-        {{ form.hidden_tag() }}
+        {{ blocks_form.hidden_tag() }}
 
 	<div class="row">
 
@@ -100,17 +100,17 @@
                     <ul>
 
                         <li>
-                            {{ form.submit }}
+                            {{ blocks_form.submit }}
                         </li>
 
                         <li>
-                            <a href="{{ url_for('new_card_view') }}">New
-                                Card</a>
+                            <a href="{{ url_for('new_card_view') }}">
+								New Card</a>
                         </li>
 
                         <li>
                             <a href="{{ url_for('all_cards_view') }}">
-                                Edit Card
+                                All Cards
                             </a>
                         </li>
 

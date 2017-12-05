@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for
 from app import lumo_hub
-from app.card import Card
-from app.data_manipulation import get_incmplts_tuple
+from app.card_model import Card
+from app.card_step_data_collect import get_incmplts_tuple
 from app.forms import TodoButtonsImproved
 from itertools import zip_longest
 

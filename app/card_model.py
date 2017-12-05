@@ -1,9 +1,13 @@
 import mongoengine
-from app.card_steps import CardSteps
 from config import global_init
 
 global_init()
 
+
+class CardSteps(mongoengine.EmbeddedDocument):
+    step_no = mongoengine.IntField()
+    step_name = mongoengine.StringField(required=True)
+    step_status = mongoengine.IntField(default=0)
 
 class Card(mongoengine.Document):
     card_name = mongoengine.StringField(required=True)

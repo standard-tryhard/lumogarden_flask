@@ -1,6 +1,6 @@
 from app import lumo_hub
 from flask import render_template, redirect, url_for
-from app.card import Card
+from app.card_model import Card
 from app.blocks_view import block_positions
 
 template_card = Card.objects(card_name='...').get()
