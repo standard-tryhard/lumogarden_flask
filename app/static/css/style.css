@@ -190,8 +190,6 @@ div.new-card-name input {
 }
 
 
-
-
 .singl_card_step_no {
     font-weight: 500;
     font-size: 16px;
@@ -232,7 +230,7 @@ div.new-card-name input {
 
 }
 
-a.full-width-link{
+a.full-width-link {
     width: 100%;
     margin-top: 10px;
     border: 1px solid;
@@ -242,6 +240,11 @@ a.full-width-link{
     border-style: none;
     text-align: center;}
 
+.all-cards-delete {
+    position: absolute;
+    bottom: 30px;
+}
+}
 
 
 #header_link:hover {
