@@ -9,10 +9,6 @@ def new_card_view():
 
     new_card_form = NewCardForm()
 
-    for card in Card.objects():
-        card.card_name = card.card_name.title()
-        card.save()
-
     if new_card_form.validate_on_submit():
 
         new_card_name = new_card_form.new_card_name.data.title()
@@ -28,7 +24,7 @@ def new_card_view():
                 new_card.update(push__card_steps=step)
                 step_incr += 1
 
-        return redirect(url_for('new_card_view'))
+        return redirect(url_for('jars_view', jar_from_url=new_card.card_in_jar))
 
     return render_template('new_card.html', new_card_form=new_card_form)
 

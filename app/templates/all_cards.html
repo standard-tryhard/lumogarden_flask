@@ -2,7 +2,12 @@
 {% block content %}
 
 
-<h3 class="lumo-header">lumogarden: all cards <b>{{ total_cards }}</b></h3>
+<h3 class="lumo-header">
+    <a href="{{ url_for('blocks_view') }}">
+        lumogarden: all cards <b>{{ total_cards }}</b>
+    </a>
+</h3>
+
 
 <div class="col-xs-12 card-view">
 
@@ -28,7 +33,10 @@
                 <br>
                 <br>
                 <br>
-                <a class="all-cards-delete" href="#">x</a>
+                <a class="all-cards-delete"
+                   href="{{ url_for('delete_card',
+                            card=card.card_name) }}" ,
+                   method="post"> x </a>
 
             </div>
         </div>

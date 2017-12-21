@@ -34,8 +34,9 @@ def card_view(card_from_url):
                 found_card.card_steps[n].step_status = 0
 
         found_card.save()
-        return redirect(url_for('card_view',
-                                card_from_url=card_from_url))
+
+        return redirect(url_for('jars_view',
+                                jar_from_url=card_in_jar))
 
 
     return render_template('card.html',

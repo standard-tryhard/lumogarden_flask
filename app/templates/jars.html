@@ -113,11 +113,17 @@
                             {{ form.submit }}
                         </li>
 
+
                         <li>
                             <a href="{{ url_for('set_actives_view',
                                     jar_from_url=jar_name) }}">
                                 edit active cards
                             </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ url_for('new_card_view') }}">
+                                New Card</a>
                         </li>
 
                     </ul>

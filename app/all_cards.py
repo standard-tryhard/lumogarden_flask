@@ -17,3 +17,13 @@ def all_cards_view():
     return render_template('all_cards.html',
                            all_cards=all_cards,
                            total_cards=total_cards)
+
+
+@lumo_hub.route('/delete_card/<string:card>/', methods=['GET', 'POST'])
+def delete_card(card):
+    print('ok')
+    print(card)
+
+    Card.objects(card_name=card).delete()
+
+    return redirect(url_for('all_cards_view'))

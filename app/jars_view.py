@@ -1,3 +1,4 @@
+import time
 from flask import render_template, redirect, url_for
 from app import lumo_hub
 from app.card_model import Card
@@ -5,7 +6,7 @@ from app.card_step_data_collect import get_incmplts_tuple
 from app.forms import TodoButtonsImproved
 from itertools import zip_longest
 
-template_card = Card.objects(card_name='...').get()
+template_card = Card.objects.get(card_name="...")
 
 @lumo_hub.route('/jars/<string:jar_from_url>/', methods=['GET', 'POST'])
 def jars_view(jar_from_url):
@@ -45,25 +46,30 @@ def jars_view(jar_from_url):
         }
 
     form = TodoButtonsImproved()
+    subforms = [f for f in form if f.type == 'FormField']
 
-    for subform, card in zip_longest(form, jar_positions.values()):
+    for subform, card in zip_longest(subforms, jar_positions.values()):
         idx = 0
-        if subform.type == 'FormField':
-            for chk in subform:
-                chk.id, chk.label = get_incmplts_tuple(card)[idx]
-                idx += 1
+        for chk in subform:
+            chk.id, chk.label = get_incmplts_tuple(card)[idx]
+            idx += 1
+
 
     if form.validate_on_submit():
         subforms = [f for f in form if f.type == "FormField"]
+
         for s_f in subforms:
+            card = jar_positions[s_f.name[:2]]
+
             for chk in s_f:
-                if chk.data:
-                    card = jar_positions[s_f.name[:2]]
-                    n = chk.id
+                n = chk.id
+
+                if chk.data and n >= 0:
                     card.card_steps[n].step_status = 1
+
             card.save()
 
-            return redirect(url_for('jars_view', jar_from_url=jar_from_url))
+        return redirect(url_for('jars_view', jar_from_url=jar_from_url))
 
     return render_template('jars.html',
                            jar_name=jar_name,
