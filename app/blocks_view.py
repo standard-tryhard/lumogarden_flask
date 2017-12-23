@@ -4,6 +4,7 @@ from app.block_model import Block
 from app.forms import TodoButtonsImproved
 
 
+
 tl = Block.objects.get(position='top_left')
 tm = Block.objects.get(position='top_mid')
 tr = Block.objects.get(position='top_right')

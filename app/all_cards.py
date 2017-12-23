@@ -26,4 +26,4 @@ def delete_card(card):
 
     Card.objects(card_name=card).delete()
 
-    return redirect(url_for('all_cards_view'))
+    return redirect(url_for('/'))

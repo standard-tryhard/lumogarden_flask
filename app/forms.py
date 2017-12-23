@@ -102,3 +102,19 @@ class MultiCheckboxField(SelectMultipleField):
 class ShowMultipleChkbxForm(FlaskForm):
     chks = MultiCheckboxField('Label', choices=[])
     submit = SubmitField('rebloom')
+
+
+class PinCardsBlocks(FlaskForm):
+    tl_chks = MultiCheckboxField(choices=[], label='hey')
+    tm_chks = MultiCheckboxField(choices=[])
+    tr_chks = MultiCheckboxField(choices=[])
+
+    ml_chks = MultiCheckboxField(choices=[])
+    mr_chks = MultiCheckboxField(choices=[])
+
+    bl_chks = MultiCheckboxField(choices=[])
+    bm_chks = MultiCheckboxField(choices=[])
+    br_chks = MultiCheckboxField(choices=[])
+
+    submit = StringField('rebloom')
+

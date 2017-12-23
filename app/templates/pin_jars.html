@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h3 class="lumo-header">lumogarden: pin cards</h3>
+
+<div class="col-xs-12 card-view">
+
+    <form method="POST">
+        {{ actives_form.hidden_tag() }}
+
+
+        <div class="all-cards">
+            {% for chk in actives_form.chks %}
+            <div class="col-xs-10">
+                {{ chk.label }}
+            </div>
+
+            <div class="col-xs-2">
+                {{ chk }}
+            </div>
+
+            <script>
+                    var octo = "#";
+                    var idChk = "{{chk.id}}";
+                    var fullChkId = octo.concat(idChk);
+                    var status = "{{ positions[loop.index-1] }}"
+
+                    if (status != "inactive") {
+                            console.log(status)
+                            $(fullChkId).prop("checked", true);
+                        }
+
+
+
+
+            </script>
+            {% endfor %}
+        </div>
+
+        <div class="full-width-link">
+            {{ actives_form.submit }}
+        </div>
+
+    </form>
+</div> <!-- col-xs-12 -->
+
+
+{% endblock %}
