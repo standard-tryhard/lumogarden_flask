@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h3 class="lumo-header">lumogarden: pin cards</h3>
+
+<div class="col-xs-12 card-view">
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+
+
+        <div class="all-cards">
+
+        {{ form.submit }}
+
+        <!--------------------------------------->
+        <!--------------------------------------->
+        <!--------------------------------------->
+        <!--**TOP**-->
+
+        <!-- TOP LEFT -->
+        <h3>
+            {{ subforms_dict['tl_chks'].label }}
+        </h3>
+
+        {% for chk in subforms_dict['tl_chks'] %}
+            <div class="row">
+
+                <div class="col-xs-10">
+                    {{ chk.label }}
+                </div>
+
+                <div class="col-xs-2">
+                    {{ chk }}
+                </div>
+
+            </div>
+            {% endfor %}
+
+
+        <!-- TOP MID -->
+        <h3>
+            {{ subforms_dict['tm_chks'].label }}
+        </h3>
+
+        {% for chk in subforms_dict['tm_chks'] %}
+            <div class="row">
+
+                <div class="col-xs-10">
+                    {{ chk.label }}
+                </div>
+
+                <div class="col-xs-2">
+                    {{ chk }}
+                </div>
+
+            </div>
+            {% endfor %}
+
+        <!-- TOP RIGHT -->
+
+        <h3>
+            {{ subforms_dict['tr_chks'].label }}
+        </h3>
+
+        {% for chk in subforms_dict['tr_chks'] %}
+            <div class="row">
+
+                <div class="col-xs-10">
+                    {{ chk.label }}
+                </div>
+
+                <div class="col-xs-2">
+                    {{ chk }}
+                </div>
+
+            </div>
+            {% endfor %}
+
+
+        <!--------------------------------------->
+        <!--------------------------------------->
+        <!--------------------------------------->
+        <!--**MIDDLE**-->
+
+        <!-- MID MID RESERVED FOR LINKS -->
+
+        <!-- MID LEFT -->
+        <h3>
+            {{ subforms_dict['ml_chks'].label }}
+        </h3>
+
+        {% for chk in subforms_dict['ml_chks'] %}
+            <div class="row">
+
+                <div class="col-xs-10">
+                    {{ chk.label }}
+                </div>
+
+                <div class="col-xs-2">
+                    {{ chk }}
+                </div>
+            </div>
+        {% endfor %}
+
+
+        <!-- MID RIGHT -->
+        <h3>
+            {{ subforms_dict['mr_chks'].label }}
+        </h3>
+
+        {% for chk in subforms_dict['mr_chks'] %}
+            <div class="row">
+
+                <div class="col-xs-10">
+                    {{ chk.label }}
+                </div>
+
+                <div class="col-xs-2">
+                    {{ chk }}
+                </div>
+            </div>
+        {% endfor %}
+
+
+
+        <!--------------------------------------->
+        <!--------------------------------------->
+        <!--------------------------------------->
+        <!--**BOTTOM**-->
+
+        <!-- BOTTOM LEFT -->
+        <h3>
+            {{ subforms_dict['bl_chks'].label }}
+        </h3>
+
+        {% for chk in subforms_dict['bl_chks'] %}
+            <div class="row">
+
+                <div class="col-xs-10">
+                    {{ chk.label }}
+                </div>
+
+                <div class="col-xs-2">
+                    {{ chk }}
+                </div>
+            </div>
+
+
+
+        {% endfor %}
+
+
+        <!-- BOTTOM MID -->
+        <h3>
+            {{ subforms_dict['bm_chks'].label }}
+        </h3>
+
+        {% for chk in subforms_dict['bm_chks'] %}
+            <div class="row">
+
+                <div class="col-xs-10">
+                    {{ chk.label }}
+                </div>
+
+                <div class="col-xs-2">
+                    {{ chk }}
+                </div>
+            </div>
+        {% endfor %}
+
+
+        <!-- BOTTOM RIGHT-->
+        <h3>
+            {{ subforms_dict['br_chks'].label }}
+        </h3>
+
+        {% for chk in subforms_dict['br_chks'] %}
+            <div class="row">
+
+                <div class="col-xs-10">
+                    {{ chk.label }}
+                </div>
+
+                <div class="col-xs-2">
+                    {{ chk }}
+                </div>
+
+            </div>
+        {% endfor %}
+
+
+
+        </div>
+
+
+    </form>
+</div> <!-- col-xs-12 -->
+
+
+{% endblock %}

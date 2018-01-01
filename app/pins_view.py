@@ -7,9 +7,10 @@ from app import lumo_hub
 from flask import render_template, redirect, url_for
 from app.card_model import Card
 from app.forms import ShowMultipleChkbxForm, PinCardsBlocks
-from app import blocks_view
 from app.blocks_view import block_positions
 
+
+# print(block_positions['tm'])
 
 template_card = Card.objects(card_name='...').get()
 positions_ref = ['top_left',
@@ -47,7 +48,7 @@ def pin_to_jars(jar_from_url):
 
         return redirect(url_for('jars_view', jar_from_url=jar_from_url))
 
-    return render_template('pin_jars.html',
+    return render_template('pin_to_jars.html',
                            all_cards_per_jar=all_cards_per_jar,
                            actives_form=actives_form,
                            positions=positions)
@@ -67,13 +68,33 @@ def pin_to_blocks():
     form = PinCardsBlocks()
     subforms = [sf for sf in form if sf.type == "MultiCheckboxField"]
 
-
+    # I don't think this a good implementation, what if all the blocks aren't full?
+    # I should come back to this...
     for sf, bp in itertools.zip_longest(subforms, block_positions.values()):
         sf.choices = [(c, c) for c in cards_by_block(bp)]
+        sf.label = bp.block_name
 
 
     subforms_dict = {sf.name: sf for sf in subforms}
-    print(subforms_dict['tl_chks'].choices)
+    all_pinned_dict = ({b.block_name: b.card_actives
+                        for b in block_positions.values()})
+    print(all_pinned_dict)
+
+    if form.validate_on_submit():
+        for sf in subforms_dict.values():
+            block_str = sf.id[:2]
+            block = block_positions[block_str]
+            for chk in sf:
+                data = chk.__dict__['data']
+                if chk.checked == True:
+                    block.update(add_to_set__card_actives=data)
+                else:
+                    block.update(pull__card_actives=data)
+
+        return redirect(url_for('pin_to_blocks'))
 
 
-    return redirect(url_for('blocks_view'))
+
+    return render_template('pin_to_blocks.html',
+                           form=form,
+                           subforms_dict=subforms_dict)

@@ -105,7 +105,7 @@ class ShowMultipleChkbxForm(FlaskForm):
 
 
 class PinCardsBlocks(FlaskForm):
-    tl_chks = MultiCheckboxField(choices=[], label='hey')
+    tl_chks = MultiCheckboxField(choices=[])
     tm_chks = MultiCheckboxField(choices=[])
     tr_chks = MultiCheckboxField(choices=[])
 
@@ -116,5 +116,4 @@ class PinCardsBlocks(FlaskForm):
     bm_chks = MultiCheckboxField(choices=[])
     br_chks = MultiCheckboxField(choices=[])
 
-    submit = StringField('rebloom')
-
+    submit = SubmitField('rebloom')
