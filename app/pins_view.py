@@ -1,16 +1,16 @@
 import collections
-from itertools import zip_longest
+from itertools import zip_longest, chain
 
 import itertools
 
 from app import lumo_hub
 from flask import render_template, redirect, url_for
+from app.block_model import Block
 from app.card_model import Card
 from app.forms import ShowMultipleChkbxForm, PinCardsBlocks
-from app.blocks_view import block_positions
+from app.blocks_view import return_block_positions
 
 
-# print(block_positions['tm'])
 
 template_card = Card.objects(card_name='...').get()
 positions_ref = ['top_left',
@@ -56,6 +56,7 @@ def pin_to_jars(jar_from_url):
 
 @lumo_hub.route('/pin_to_blocks/', methods=['GET', 'POST'])
 def pin_to_blocks():
+    block_positions = return_block_positions()
 
 
     def cards_by_block(block):
@@ -68,6 +69,8 @@ def pin_to_blocks():
     form = PinCardsBlocks()
     subforms = [sf for sf in form if sf.type == "MultiCheckboxField"]
 
+
+
     # I don't think this a good implementation, what if all the blocks aren't full?
     # I should come back to this...
     for sf, bp in itertools.zip_longest(subforms, block_positions.values()):
@@ -76,9 +79,9 @@ def pin_to_blocks():
 
 
     subforms_dict = {sf.name: sf for sf in subforms}
-    all_pinned_dict = ({b.block_name: b.card_actives
-                        for b in block_positions.values()})
-    print(all_pinned_dict)
+
+    all_pinned_multi_list = [b.card_actives for b in block_positions.values()]
+    all_pinned = list(chain.from_iterable(all_pinned_multi_list))
 
     if form.validate_on_submit():
         for sf in subforms_dict.values():
@@ -91,10 +94,16 @@ def pin_to_blocks():
                 else:
                     block.update(pull__card_actives=data)
 
-        return redirect(url_for('pin_to_blocks'))
 
+        return redirect(url_for('blocks_view'))
+
+        # return render_template('pin_to_blocks.html',
+        #                        form=form,
+        #                        subforms_dict=subforms_dict,
+        #                        all_pinned=all_pinned)
 
 
     return render_template('pin_to_blocks.html',
                            form=form,
-                           subforms_dict=subforms_dict)
+                           subforms_dict=subforms_dict,
+                           all_pinned=all_pinned)

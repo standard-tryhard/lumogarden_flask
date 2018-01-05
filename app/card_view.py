@@ -27,7 +27,9 @@ def card_view(card_from_url):
 
     if existing_steps_form.validate_on_submit():
         for chk in existing_steps_form.chks:
-            n = int(chk.id[-1])
+            print(chk.id)
+            n = int(chk.id[5:])
+            print(n)
             if chk.checked:
                 found_card.card_steps[n].step_status = 1
             else:
