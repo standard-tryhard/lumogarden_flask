@@ -250,3 +250,14 @@ a.full-width-link {
 #header_link:hover {
     font-weight: 200;
 }
+
+.searchBar {
+    float:inline-end; 
+    font-family:'Lato';
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: none;
+    color: black;
+    letter-spacing: 1px;
+    padding-top: 5px;
+}
