@@ -12,4 +12,4 @@ Ingredients:
 - Flask
 - MongoDB
 
-![lumogarden blocks](https://github.com/thomasoflight/lumogarden/blob/develop/assets/lumogarden_concept_proof.mov)
+![lumogarden blocks](https://github.com/thomasoflight/lumogarden/blob/develop/assets/lumogarden.gif)
