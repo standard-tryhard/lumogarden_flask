@@ -13,4 +13,4 @@ Ingredients:
 - MongoDB
 
 ![lumogarden blocks](https://github.com/thomasoflight/lumogarden/blob/develop/assets/lumogarden.gif)
-<img src="https://github.com/thomasoflight/lumogarden/blob/develop/assets/lumogarden.gif" width="600" height="550" />
+<img src="https://github.com/thomasoflight/lumogarden/blob/develop/assets/lumogarden.gif" width="600" height="500" />
