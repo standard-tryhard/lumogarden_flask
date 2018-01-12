@@ -2,7 +2,7 @@ from collections import namedtuple
 from flask import render_template, redirect, url_for
 from app import lumo_hub
 from app.card_model import Card
-from app.forms import ShowMultipleChkbxForm
+from app.forms import VariableChks
 
 template_card = Card.objects(card_name='...').get()
 
@@ -22,7 +22,7 @@ def card_view(card_from_url):
     existing_steps = [(s.step_name, s.step_name) for s in found_card.card_steps]
     bools = [s.step_status for s in found_card.card_steps]
 
-    existing_steps_form = ShowMultipleChkbxForm()
+    existing_steps_form = VariableChks()
     existing_steps_form.chks.choices = existing_steps
 
     if existing_steps_form.validate_on_submit():

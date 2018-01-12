@@ -1,13 +1,13 @@
 from flask import render_template, redirect, url_for
 from app import lumo_hub
 from app.card_model import Card, CardSteps
-from app.forms import NewCardForm
+from app.forms import NewCard
 
 
 @lumo_hub.route('/new_card/', methods=['GET', 'POST'])
 def new_card_view():
 
-    new_card_form = NewCardForm()
+    new_card_form = NewCard()
 
     if new_card_form.validate_on_submit():
 

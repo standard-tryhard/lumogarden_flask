@@ -6,7 +6,7 @@ from wtforms import (StringField, FormField,
 from wtforms.validators import DataRequired
 
 
-class NewCardStepsForm(FlaskForm):
+class NewCardSteps(FlaskForm):
     new_card_step_A = StringField('')
     new_card_step_B = StringField('')
     new_card_step_C = StringField('')
@@ -21,23 +21,23 @@ class NewCardStepsForm(FlaskForm):
     new_card_step_L = StringField('')
 
 
-class NewCardForm(FlaskForm):
+class NewCard(FlaskForm):
     new_card_name = StringField('new_card_name', validators=[DataRequired()])
     new_card_jar = StringField('new_card_jar', validators=[DataRequired()])
-    new_card_steps = FormField(NewCardStepsForm)
+    new_card_steps = FormField(NewCardSteps)
 
     submit = SubmitField('create card')
 
 
-class AddStepsForm(FlaskForm):
+class AddSteps(FlaskForm):
     edit_card_name = StringField('edit_card_name')
     edit_card_jar = StringField('edit_card_jar')
-    added_steps = FormField(NewCardStepsForm)
+    added_steps = FormField(NewCardSteps)
 
     submit = SubmitField('complete edit')
 
 
-class EditCardStepsForm(FlaskForm):
+class EditCardSteps(FlaskForm):
     new_card_step_A = StringField('')
     new_card_step_B = StringField('')
     new_card_step_C = StringField('')
@@ -45,10 +45,10 @@ class EditCardStepsForm(FlaskForm):
     new_card_step_E = StringField('')
 
 
-class EditCardForm(FlaskForm):
+class EditCard(FlaskForm):
     edit_card_name = StringField('edit_card_name',
                                  validators=[DataRequired()])
-    additional_steps = FormField(EditCardStepsForm)
+    additional_steps = FormField(EditCardSteps)
 
     submit = SubmitField('add steps')
 
@@ -75,7 +75,7 @@ class CheckboxGroup(FlaskForm):
     chk_thr = BooleanField('')
 
     class Meta:
-        # This overrides the value from the base form.
+        # This overrides the default value from the base form.
         csrf = False
 
 
@@ -99,12 +99,12 @@ class MultiCheckboxField(SelectMultipleField):
     option_widget = widgets.CheckboxInput()
 
 
-class ShowMultipleChkbxForm(FlaskForm):
+class VariableChks(FlaskForm):
     chks = MultiCheckboxField('Label', choices=[])
     submit = SubmitField('rebloom')
 
 
-class PinCardsBlocks(FlaskForm):
+class VariableChksMultiform(FlaskForm):
     tl_chks = MultiCheckboxField(choices=[])
     tm_chks = MultiCheckboxField(choices=[])
     tr_chks = MultiCheckboxField(choices=[])

@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for
 from app import lumo_hub
 from app.card_model import Card, CardSteps
-from app.forms import ShowMultipleChkbxForm, AddStepsForm
+from app.forms import VariableChks, AddSteps
 
 template_card = Card.objects(card_name='...').get()
 
@@ -21,10 +21,10 @@ def edit_card_view(searched_card):
     existing_steps = [(s.step_name, s.step_name) for s in found_card.card_steps]
     bools = [s.step_status for s in found_card.card_steps]
 
-    existing_steps_form = ShowMultipleChkbxForm()
+    existing_steps_form = VariableChks()
     existing_steps_form.chks.choices = existing_steps
 
-    add_steps_form = AddStepsForm()
+    add_steps_form = AddSteps()
 
 
     if add_steps_form.validate_on_submit():

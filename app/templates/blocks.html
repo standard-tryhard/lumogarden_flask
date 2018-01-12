@@ -5,7 +5,7 @@
 <h3 class="lumo-header">lumogarden: blocks</h3>
 
     <form method="POST">
-        {{ blocks_form.hidden_tag() }}
+        {{ form.hidden_tag() }}
 
 
 	<div class="row">
@@ -21,8 +21,19 @@
                 </h4>
 				<div>
 					<ul>
-                        {% for p in block_positions['tl'].card_actives %}
-                            <li>{{ p }}</li>
+						{% for chk in form.tl_chks %}
+                        <div class="row row-blocks">
+                            <div class="col-xs-10">
+                                <label class="align-to-chk">
+                                    <span class="pinned-block">{{ chk.data }}</span>
+                                    {{ chk.label}}
+                                </label>
+                            </div>
+
+                            <div class="col-xs-1 margin-less-6">
+                                <li>{{ chk }}<li/>
+                            </div>
+                        </div>
                         {% endfor %}
 					</ul>
 
@@ -42,9 +53,20 @@
 				</h4>
 				<div>
 					<ul>
-                        {% for p in block_positions['tm'].card_actives %}
-                            <li>{{ p }}</li>
-                        {% endfor %}
+                        {% for chk in form.tm_chks -%}
+                        <div class="row row-blocks">
+                            <div class="col-xs-10">
+                                <label class="align-to-chk">
+                                    <span class="pinned-block">{{ chk.data }}</span>
+                                    {{ chk.label}}
+                                </label>
+                            </div>
+
+                            <div class="col-xs-1 margin-less-6">
+                                <li>{{ chk }}<li/>
+                            </div>
+                        </div>
+                        {%- endfor %}
 					</ul>
 
 				</div>
@@ -63,8 +85,19 @@
 				</h4>
 				<div>
 					<ul>
-                        {% for p in block_positions['tr'].card_actives %}
-                            <li>{{ p }}</li>
+                        {% for chk in form.tr_chks %}
+                        <div class="row row-blocks">
+                            <div class="col-xs-10">
+                                <label class="align-to-chk">
+                                    <span class="pinned-block">{{ chk.data }}</span>
+                                    {{ chk.label}}
+                                </label>
+                            </div>
+
+                            <div class="col-xs-1 margin-less-6">
+                                <li>{{ chk }}<li/>
+                            </div>
+                        </div>
                         {% endfor %}
 					</ul>
 
@@ -98,8 +131,19 @@
                     <!--if checked, refresh using same mechanism that jars uses -->
 
 					<ul>
-                        {% for p in block_positions['ml'].card_actives %}
-                            <li>{{ p }}</li>
+                        {% for chk in form.ml_chks %}
+                        <div class="row row-blocks">
+                            <div class="col-xs-10">
+                                <label class="align-to-chk">
+                                    <span class="pinned-block">{{ chk.data }}</span>
+                                    {{ chk.label}}
+                                </label>
+                            </div>
+
+                            <div class="col-xs-1 margin-less-6">
+                                <li>{{ chk }}<li/>
+                            </div>
+                        </div>
                         {% endfor %}
 					</ul>
 				</div>
@@ -117,7 +161,7 @@
                     <ul>
 
                         <li>
-                            {{ blocks_form.submit }}
+                            {{ form.submit }}
                         </li>
 
 						<li>
@@ -156,8 +200,19 @@
 				</h4>
 				<div>
 					<ul>
-                        {% for p in block_positions['mr'].card_actives %}
-                            <li>{{ p }}</li>
+                        {% for chk in form.mr_chks %}
+                        <div class="row row-blocks">
+                            <div class="col-xs-10">
+                                <label class="align-to-chk">
+                                    <span class="pinned-block">{{ chk.data }}</span>
+                                    {{ chk.label}}
+                                </label>
+                            </div>
+
+                            <div class="col-xs-1 margin-less-6">
+                                <li>{{ chk }}<li/>
+                            </div>
+                        </div>
                         {% endfor %}
 					</ul>
 
@@ -186,8 +241,19 @@
 				</h4>
 				<div>
 					<ul>
-                        {% for p in block_positions['bl'].card_actives %}
-                            <li>{{ p }}</li>
+                        {% for chk in form.bl_chks %}
+                        <div class="row row-blocks">
+                            <div class="col-xs-10">
+                                <label class="align-to-chk">
+                                    <span class="pinned-block">{{ chk.data }}</span>
+                                    {{ chk.label}}
+                                </label>
+                            </div>
+
+                            <div class="col-xs-1 margin-less-6">
+                                <li>{{ chk }}<li/>
+                            </div>
+                        </div>
                         {% endfor %}
 					</ul>
 
@@ -207,8 +273,19 @@
 				</h4>
 				<div>
 					<ul>
-                        {% for p in block_positions['br'].card_actives %}
-                            <li>{{ p }}</li>
+                        {% for chk in form.bm_chks %}
+                        <div class="row row-blocks">
+                            <div class="col-xs-10">
+                                <label class="align-to-chk">
+                                    <span class="pinned-block">{{ chk.data }}</span>
+                                    {{ chk.label}}
+                                </label>
+                            </div>
+
+                            <div class="col-xs-1 margin-less-6">
+                                <li>{{ chk }}<li/>
+                            </div>
+                        </div>
                         {% endfor %}
 					</ul>
 
@@ -228,8 +305,19 @@
 				</h4>
 				<div>
 					<ul>
-                        {% for p in block_positions['br'].card_actives %}
-                            <li>{{ p }}</li>
+                        {% for chk in form.br_chks %}
+                        <div class="row row-blocks">
+                            <div class="col-xs-10">
+                                <label class="align-to-chk">
+                                    <span class="pinned-block">{{ chk.data }}</span>
+                                    {{ chk.label}}
+                                </label>
+                            </div>
+
+                            <div class="col-xs-1 margin-less-6">
+                                <li>{{ chk }}<li/>
+                            </div>
+                        </div>
                         {% endfor %}
 					</ul>
 

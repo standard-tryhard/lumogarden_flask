@@ -7,7 +7,7 @@ from app import lumo_hub
 from flask import render_template, redirect, url_for
 from app.block_model import Block
 from app.card_model import Card
-from app.forms import ShowMultipleChkbxForm, PinCardsBlocks
+from app.forms import VariableChks, VariableChksMultiform
 from app.blocks_view import return_block_positions
 
 
@@ -31,7 +31,7 @@ def pin_to_jars(jar_from_url):
     choices = [(c.card_name, c.card_name) for c in all_cards_per_jar]
     positions = [c.card_active for c in all_cards_per_jar]
 
-    actives_form = ShowMultipleChkbxForm()
+    actives_form = VariableChks()
     actives_form.chks.choices = choices
 
     if actives_form.validate_on_submit():
@@ -66,7 +66,7 @@ def pin_to_blocks():
         return card_names
 
 
-    form = PinCardsBlocks()
+    form = VariableChksMultiform()
     subforms = [sf for sf in form if sf.type == "MultiCheckboxField"]
 
 
@@ -96,11 +96,6 @@ def pin_to_blocks():
 
 
         return redirect(url_for('blocks_view'))
-
-        # return render_template('pin_to_blocks.html',
-        #                        form=form,
-        #                        subforms_dict=subforms_dict,
-        #                        all_pinned=all_pinned)
 
 
     return render_template('pin_to_blocks.html',
